@@ -1,0 +1,57 @@
+* {
+    margin: auto;
+}
+
+body {
+    background: black;
+}
+
+.container {
+    width: 70%;
+    height: 70vh;
+    margin-top: 5em;
+    padding: 20px;
+    text-align: left;
+    background: #111;
+    color: lightgreen;
+    font-family: monospace;
+    font-size: 1.2em;
+    border-radius: 3%;
+    /*border: solid #333 5px;*/
+}
+
+hr.custom-badass {
+    border: 1px dashed lightgreen;
+    margin: 1em 0 1em 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0 0 0 .4em;
+}
+
+.answer-option {
+	margin: .3em 0 .3em 0;
+}
+
+#answer {
+    margin: 1em 0 0 0;
+}
+
+#summary {
+    margin: 1em 0 0 0;
+}
+
+#next-question {
+    margin: 2em 0 0 0;
+    /*background: darkgreen;*/
+    width: 128px;
+}
+
+.pointer {
+    cursor: pointer;
+}
+
+.pointer:hover {
+    background: darkgreen;
+}
