@@ -39,7 +39,7 @@ answerOptionContainer.addEventListener('click', (e) => {
         summary.innerText = `${questionAnswers[qaIndex].summary}`;
         nextQuestionBtn.style = '';
     } else {
-        answer.innerText = 'ANSWER: TRY AGAIN!!!';
+        answer.innerText = 'ANSWER: NOPE TRY AGAIN!!!';
         summary.innerText = '';
         nextQuestionBtn.style.display = 'none'
     };
@@ -72,9 +72,9 @@ const questionAnswers = [{
     {
         question: 'This "law" states that computer performance speeds will double every two years',
         answerOptions: [{ A: "Ohm's Law" },
-            { B: "Murphy's Law" },
-            { C: "Moore's Law" },
-            { D: "Processing Law" }
+            { B: "Linus's Law" },
+            { C: "Snoopy's Law" },
+            { D: "Moore's Law" }
         ],
         answer: "Moore's Law",
         summary: 'In 1965 Gordon Moore was director of R&D at Fairchild Semiconductor. He observed and accurately predicted that the number of components on a semiconductor chip would double every two years.'
@@ -87,14 +87,29 @@ const questionAnswers = [{
             { D: "Microsoft" }
         ],
         answer: "Xerox",
-        summary: "In 1973, nearly a decade before a commercial GUI computer was released, the Xerox Alto was designed and built at the company's Palo Alto Research Center (PARC). Apparently Xerox's east coast corporate headquarters didn't understand the revolutionary nature of the technology and never tried to market it."
+        summary: "In 1973 (nearly a decade before the first commercially available GUI computer was released) the Xerox Alto was designed and built at the company's Palo Alto Research Center. Apparently Xerox's east coast management didn't understand the revolutionary nature of the GUI technology and never tried to market it."
+    },
+    {
+        question: `look at the following binary numbers and their decimal equivalents:
+        0001 = 1
+        0010 = 2
+        0100 = 4
+        what is the decimal equivalent of binary 1000?
+        `,
+        answerOptions: [{ A: "5" },
+            { B: "6" },
+            { C: "7" },
+            { D: "8" }
+        ],
+        answer: "8",
+        summary: "using a decimal number system each number has a maximum value of 10 times (x10) the number to it's right. In a binary system each number doubles (x2) the value of the number on it's right."
     },
     {
         question: '______ designed the first Apple computer',
         answerOptions: [{ A: "Steve Wozniak" },
             { B: "Steve Ballmer" },
             { C: "Steve Jobs" },
-            { D: "Steve Kazniwok" }
+            { D: "Steve Kazniwookie" }
         ],
         answer: "Steve Wozniak",
         summary: "In 1975 Steve Wozniak designed and hand-built a computer that would become the Apple I. He and Steve Jobs assembled and sold them from a garage during the next year."
@@ -110,14 +125,25 @@ const questionAnswers = [{
         summary: "On September 9th, 1947 programmer Grace Hopper wrote in the Harvard Mark II computer's log book 'First actual case of bug being found'. This was after a problem with the machine was traced to a moth stuck between relay contacts."
     },
     {
-        question: "To pass the _______ test a machine must exhibit intelligent behavior indistinguishable from that of a human.",
-        answerOptions: [{ A: "Speed" },
-            { B: "Turing" },
-            { C: "Gates" },
-            { D: "Heisenberg" }
+        question: "To pass a _______ a machine must exhibit intelligent behavior indistinguishable from that of a human.",
+        answerOptions: [{ A: "Speed Gate" },
+            { B: "Turing Test" },
+            { C: "Babbage Test" },
+            { D: "Logic Gate" }
         ],
-        answer: "Turing",
-        summary: ""
+        answer: "Turing Test",
+        summary: 'Englishman Alan Turing is widely considered to be the father of theoretical computer science and artificial intelligence. The Turing Test was proposed in his 1950 paper "Computing Machinery and Intelligence".'
     },
 ];
 
+
+// {
+//     question: "",
+//     answerOptions: [{ A: "" },
+//         { B: "" },
+//         { C: "" },
+//         { D: "" }
+//     ],
+//     answer: "",
+//     summary: ""
+// },

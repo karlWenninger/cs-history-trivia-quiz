@@ -9,7 +9,7 @@ body {
 .container {
     width: 70%;
     height: 70vh;
-    margin-top: 5em;
+    margin-top: 15vh;
     padding: 20px;
     text-align: left;
     background: #111;
@@ -20,14 +20,14 @@ body {
     /*border: solid #333 5px;*/
 }
 
-hr.custom-badass {
+hr.dashing {
     border: 1px dashed lightgreen;
-    margin: 1em 0 1em 0;
+    margin: 1.2em 0 1.2em 0;
 }
 
 ul {
     list-style: none;
-    padding: 0 0 0 .4em;
+    padding: 0 0 0 1em;
 }
 
 .answer-option {
