@@ -17,7 +17,6 @@ body {
     font-family: monospace;
     font-size: 1.2em;
     border-radius: 3%;
-    /*border: solid #333 5px;*/
 }
 
 hr.dashing {
@@ -31,7 +30,8 @@ ul {
 }
 
 .answer-option {
-	margin: .3em 0 .3em 0;
+    margin: .5em 0 .5em 0;
+    line-height: 1em;
 }
 
 #answer {
@@ -44,7 +44,6 @@ ul {
 
 #next-question {
     margin: 2em 0 0 0;
-    /*background: darkgreen;*/
     width: 128px;
 }
 

@@ -26,6 +26,7 @@ function loadQandAs(questionAnswers, qaIndex) {
     answer.innerText = 'ANSWER:';
     summary.innerText = '';
     nextQuestionBtn.style.display = 'none'
+
 };
 
 // get clicked answer-option
@@ -37,6 +38,7 @@ answerOptionContainer.addEventListener('click', (e) => {
     if (userAnswer == `${questionAnswers[qaIndex].answer}`) {
         answer.innerText = `ANSWER: ${questionAnswers[qaIndex].answer} is CORRECT!!!`;
         summary.innerText = `${questionAnswers[qaIndex].summary}`;
+
         nextQuestionBtn.style = '';
     } else {
         answer.innerText = 'ANSWER: NOPE TRY AGAIN!!!';
@@ -60,28 +62,54 @@ nextQuestionBtn.addEventListener('click', () => {
 
 
 const questionAnswers = [{
-        question: 'is credited as the inventor of the World Wide Web',
-        answerOptions: [{ A: 'Linus Torvalds' },
+        question: 'In 1990 this computer scientist developed the fundamental technologies of the World Wide Web.',
+        answerOptions: [
+            { A: 'Linus Torvalds' },
             { B: 'Bill Gates' },
             { C: 'Tim Berners-Lee' },
-            { D: 'Aida Lovelace' }
+            { D: 'Alan Turing' }
         ],
         answer: 'Tim Berners-Lee',
-        summary: '"Most of the technology involved in the web, like the hypertext, like the internet, multifont text objects, had all been designed already. I just had to put them together."'
+        summary: "Berners-Lee was working at CERN, a particle physics lab in Switzerland. He noticed that visiting scientists coming from all over the world lacked a common protocol to share computer information over the internet.",
+        furtherReading: `FURTHER READING: <a href='https://webfoundation.org/about/sir-tim-berners-lee/' target="_blank">webfoundation.org: Sir Tim Berners-Lee</a>`,
     },
     {
-        question: 'This "law" states that computer performance speeds will double every two years',
-        answerOptions: [{ A: "Ohm's Law" },
+        question: '__________ states that computer performance speeds will double every two years.',
+        answerOptions: [
+            { A: "Ohm's Law" },
             { B: "Linus's Law" },
-            { C: "Snoopy's Law" },
+            { C: "Heisenberg's Principle" },
             { D: "Moore's Law" }
         ],
         answer: "Moore's Law",
         summary: 'In 1965 Gordon Moore was director of R&D at Fairchild Semiconductor. He observed and accurately predicted that the number of components on a semiconductor chip would double every two years.'
     },
     {
-        question: 'This company is credited with development of the first computer to support a graphical user interface.',
-        answerOptions: [{ A: "Intel" },
+        question: "Until it was officially changed in 2015 this was Google's corporate motto.",
+        answerOptions: [
+            { A: "Think Different" },
+            { B: "Don't be evil" },
+            { C: "Internet, easy" },
+            { D: "Where do you want to go today?" }
+        ],
+        answer: "Don't be evil",
+        summary: "In 2015 Google changed it's motto to 'Do the right thing'. "
+    },
+    {
+        question: 'In ____ a computer was used to predict the results of a U.S. presidential election. On election night it accurately forecast a landslide victory for the candidate that was NOT favored by the media and pollsters.',
+        answerOptions: [
+            { A: "1948" },
+            { B: "1952" },
+            { C: "1956" },
+            { D: "1960" }
+        ],
+        answer: "1952",
+        summary: "The UNIVAC..."
+    },
+    {
+        question: 'This company is credited with development of the first computer to feature a graphical user interface (GUI).',
+        answerOptions: [
+            { A: "Atari" },
             { B: "Xerox" },
             { C: "Apple" },
             { D: "Microsoft" }
@@ -90,23 +118,54 @@ const questionAnswers = [{
         summary: "In 1973 (nearly a decade before the first commercially available GUI computer was released) the Xerox Alto was designed and built at the company's Palo Alto Research Center. Apparently Xerox's east coast management didn't understand the revolutionary nature of the GUI technology and never tried to market it."
     },
     {
-        question: `look at the following binary numbers and their decimal equivalents:
-        0001 = 1
-        0010 = 2
-        0100 = 4
-        what is the decimal equivalent of binary 1000?
-        `,
-        answerOptions: [{ A: "5" },
-            { B: "6" },
-            { C: "7" },
-            { D: "8" }
+        question: "After it's launch in 1998 Google's search engine gained industry dominance by utilizing a better method for",
+        answerOptions: [
+            { A: "collecting user data" },
+            { B: "hiring developers" },
+            { C: "ranking web pages" },
+            { D: "targeting advertisements" }
         ],
-        answer: "8",
-        summary: "using a decimal number system each number has a maximum value of 10 times (x10) the number to it's right. In a binary system each number doubles (x2) the value of the number on it's right."
+        answer: "ranking web pages",
+        summary: `At the time search engines ranked results according to how often a searched term appeared on a web page. Google's approach was to rank results according to how many other significant pages linked to the page being evaluated.`
     },
     {
+        question: "In 1980 IBM agreed to ship it's new line of personal computers with this Microsoft software installed. This deal eventually led to the Microsoft's dominance in the PC industry.",
+        answerOptions: [
+            { A: "Word" },
+            { B: "MS-DOS" },
+            { C: "Internet Explorer" },
+            { D: "Windows" }
+        ],
+        answer: "MS-DOS",
+        summary: "IBM didn't design their PC from scratch but assembled it from existing third party components. This made it easy for competing companies to issue PC clones. Microsoft included a non-exclusive clause in the deal that allowed them to license MS-DOS, a pre-Windows, command-line operating system to other computer manufactures. "
+    },
+    {
+        question: "The prototype of this app was developed as an internal communication tool at a failing podcast startup.",
+        answerOptions: [
+            { A: "Twitter" },
+            { B: "Spotify" },
+            { C: "YouTube" },
+            { D: "Facebook" }
+        ],
+        answer: "Twitter",
+        summary: "Twitter co-founder Jack Dorsey conceived of the idea of an individual using a SMS service to communicate with a small group while working at Odeo. Odeo was a website that enabled users to create and share podcasts. It's assets were sold in 2007. "
+    },
+    {
+        question: "At it's root level a computer's processor is reading the state of discreet transistors: an electronic signal is read as binary 1 and a lack of signal is read as binary 0. This is refereed to as",
+        answerOptions: [
+            { A: "C" },
+            { B: "machine code" },
+            { C: "BASIC" },
+            { D: "memory" }
+        ],
+        answer: "machine code",
+        summary: ""
+    },
+
+    {
         question: '______ designed the first Apple computer',
-        answerOptions: [{ A: "Steve Wozniak" },
+        answerOptions: [
+            { A: "Steve Wozniak" },
             { B: "Steve Ballmer" },
             { C: "Steve Jobs" },
             { D: "Steve Kazniwookie" }
@@ -115,8 +174,21 @@ const questionAnswers = [{
         summary: "In 1975 Steve Wozniak designed and hand-built a computer that would become the Apple I. He and Steve Jobs assembled and sold them from a garage during the next year."
     },
     {
-        question: "The first use of the word 'bug' to describe a computer failure came from a ",
-        answerOptions: [{ A: "1970s hacker who went by the moniker 'electro_fly'" },
+        question: 'hotornot.com was an early 2000s website where users could submit pictures of themselves to be rated for attractiveness by others on a scale of 1-10. A founder of which company below built a similar site in 2003?',
+        answerOptions: [
+            { A: "Facebook" },
+            { B: "Airbnb" },
+            { C: "Uber" },
+            { D: "Instagram" }
+        ],
+        answer: "Facebook",
+        summary: "For facemash.com Mark Zuckerberg hacked female ID photos from Harvard University dormitory sites, presented pictures of two women side by side and asked users to pick which one was more attractive."
+    },
+
+    {
+        question: "The first use of the word 'bug' to describe a computer malfunction came from a ",
+        answerOptions: [
+            { A: "1970s hacker who went by the moniker 'electro_fly'" },
             { B: "fried transistor that resembled an insect" },
             { C: "failed 1960s NASA spy satellite code named 'WASP'" },
             { D: "dead moth found in an electro-mechanical relay" }
@@ -126,24 +198,40 @@ const questionAnswers = [{
     },
     {
         question: "To pass a _______ a machine must exhibit intelligent behavior indistinguishable from that of a human.",
-        answerOptions: [{ A: "Speed Gate" },
+        answerOptions: [
+            { A: "Logic Gate" },
             { B: "Turing Test" },
-            { C: "Babbage Test" },
-            { D: "Logic Gate" }
+            { C: "Bill's Gate" },
+            { D: "Edison Test" }
         ],
         answer: "Turing Test",
-        summary: 'Englishman Alan Turing is widely considered to be the father of theoretical computer science and artificial intelligence. The Turing Test was proposed in his 1950 paper "Computing Machinery and Intelligence".'
+        summary: 'British scientist Alan Turing is widely considered to be the father of theoretical computer science and artificial intelligence. The Turing Test was proposed in his 1950 paper "Computing Machinery and Intelligence".'
     },
+    {
+        question: "In 1998 the U.S. Department of Justice and the Attorneys General of twenty U.S. states sued this company for 'illegally thwarting competition in order to protect and extend its monopoly'.",
+        answerOptions: [
+            { A: "Intel" },
+            { B: "Facebook" },
+            { C: "Amazon" },
+            { D: "Microsoft" }
+        ],
+        answer: "Microsoft",
+        summary: "Microsoft had bundled its Internet Explorer web browser with all Windows operating systems. They then claimed that the two pieces of software were the same product. The government's assertion was that this was done intentionally to kill competition from competing web browsers.",
+    },
+    {
+        question: 'In the early 2000s this was the dominant technology to display animations, games and playback for audio and video on the internet. It has largely fallen out of use since HTML5 compliant browsers support these features',
+        answerOptions: [
+            { A: "Flash" },
+            { B: "Firewire" },
+            { C: "PHP" },
+            { D: "Java" }
+        ],
+        answer: "Flash",
+        summary: "had to download and update the player blah blah blah"
+    },
+
 ];
 
 
-// {
-//     question: "",
-//     answerOptions: [{ A: "" },
-//         { B: "" },
-//         { C: "" },
-//         { D: "" }
-//     ],
-//     answer: "",
-//     summary: ""
-// },
+
+console.log(questionAnswers.length)
