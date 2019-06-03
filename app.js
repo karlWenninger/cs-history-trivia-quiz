@@ -17,10 +17,16 @@ function loadQandAs(questionAnswers, qaIndex) {
 
     const answerOptions = questionAnswers[qaIndex].answerOptions;
 
-    document.querySelector('#answer-option-A').innerText = `${Object.keys(answerOptions[0])}: ${Object.values(answerOptions[0])}`
-    document.querySelector('#answer-option-B').innerText = `${Object.keys(answerOptions[1])}: ${Object.values(answerOptions[1])}`
-    document.querySelector('#answer-option-C').innerText = `${Object.keys(answerOptions[2])}: ${Object.values(answerOptions[2])}`
-    document.querySelector('#answer-option-D').innerText = `${Object.keys(answerOptions[3])}: ${Object.values(answerOptions[3])}`
+    // clear for each new question answerOptions
+    answerOptionContainer.innerHTML = '';
+
+    const li = document.createElement('li');
+    li.classList = 'answer-option pointer';
+
+    for (let i of answerOptions) {
+        li.innerText = `${Object.keys(i)} ${Object.values(i)}`
+        answerOptionContainer.appendChild(li.cloneNode(true));
+    }
 
     // clear UI items (displayed only on correct answer)
     answer.innerText = 'ANSWER:';
@@ -34,7 +40,7 @@ answerOptionContainer.addEventListener('click', (e) => {
     // target user click
     if (e.target.classList.contains('answer-option')); {
         userAnswer = e.target.innerText;
-        console.log(userAnswer.slice(0, 1));
+        // console.log(userAnswer.slice(0, 1));
     };
 
     if (userAnswer.slice(0, 1) == `${questionAnswers[qaIndex].answer}`) {
@@ -61,7 +67,6 @@ window.addEventListener('load', () => {
 
 // load next question
 nextQuestionBtn.addEventListener('click', () => {
-    // if (qaIndex < )
     qaIndex++;
     loadQandAs(questionAnswers, qaIndex);
     return qaIndex;
@@ -136,7 +141,7 @@ const questionAnswers = [{
         summary: "At the time search engines ranked results by how often a searched term appeared on a web page. Google ranked results according to the number of relevant pages that linked to the page being evaluated."
     },
     {
-        question: "In 1980 IBM agreed to ship it's new line of personal computers with this Microsoft software installed. This deal eventually led to the Microsoft's dominance in the PC industry.",
+        question: "In 1980 IBM agreed to ship it's first line of personal computers with this Microsoft software installed. This deal eventually led to the Microsoft's dominance in the PC industry.",
         answerOptions: [
             { A: "Word" },
             { B: "MS-DOS" },
@@ -144,7 +149,7 @@ const questionAnswers = [{
             { D: "Windows" }
         ],
         answer: "B",
-        summary: "Microsoft included a non-exclusive clause in the deal that allowed them to license MS-DOS (a pre-Windows, command-line operating system) to other computer manufactures. Because IBM designed their PC using existing third party components competing companies we're able to easily and legally issue clones. MS-DOS became the default OS for many of these machines."
+        summary: "Microsoft included a non-exclusive clause in the deal that allowed them to license DOS (their pre-Windows, command-line OS) to any company. Because IBM designed their PC using existing third-party components competitors were able to legally issue clones. DOS became the defacto OS for these machines."
     },
     {
         question: 'Which option below is not a programming language?',
@@ -159,7 +164,7 @@ const questionAnswers = [{
     },
 
     {
-        question: "The prototype of this app was developed as an internal communication tool at a failing podcast startup.",
+        question: "The prototype of this social media app was initially developed as an internal communication tool at a failing podcast startup.",
         answerOptions: [
             { A: "Twitter" },
             { B: "Spotify" },
