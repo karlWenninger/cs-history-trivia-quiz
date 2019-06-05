@@ -7,15 +7,17 @@ const answer = document.querySelector('#answer');
 
 const summary = document.querySelector('#summary');
 
-const nextQuestionBtn = document.querySelector('#next-question');
+const nextQuestionBtn = document.querySelector('#next-question-btn');
 
 // cycle thru questionsAnswers
 let qaIndex = 0;
 
+let answerOptions;
+
 function loadQandAs(questionAnswers, qaIndex) {
     question.innerText = `QUESTION: ${questionAnswers[qaIndex].question}`;
 
-    const answerOptions = questionAnswers[qaIndex].answerOptions;
+    answerOptions = questionAnswers[qaIndex].answerOptions;
 
     // clear for each new question answerOptions
     answerOptionContainer.innerHTML = '';
@@ -24,45 +26,46 @@ function loadQandAs(questionAnswers, qaIndex) {
     li.classList = 'answer-option pointer';
 
     for (let i of answerOptions) {
-        li.innerText = `${Object.keys(i)} ${Object.values(i)}`
+        li.innerText = `${Object.keys(i)}: ${Object.values(i)}`
         answerOptionContainer.appendChild(li.cloneNode(true));
     }
-
     // clear UI items (displayed only on correct answer)
     answer.innerText = 'ANSWER:';
     summary.innerText = '';
     nextQuestionBtn.style.display = 'none'
 
+    // for possible formatting options later delete if not used
+    // return answerOptions;
 };
 
 // get clicked answer-option
 answerOptionContainer.addEventListener('click', (e) => {
     // target user click
     if (e.target.classList.contains('answer-option')); {
-        userAnswer = e.target.innerText;
-        // console.log(userAnswer.slice(0, 1));
+        userAnswer = e.target;
     };
 
-    if (userAnswer.slice(0, 1) == `${questionAnswers[qaIndex].answer}`) {
+    if (userAnswer.innerText.slice(0, 1) == `${questionAnswers[qaIndex].answer}`) {
         setTimeout(() => {
-            answer.innerText = `ANSWER: ${userAnswer.slice(2)} is CORRECT!!!`;
+
+            // ON CORRECT ANSWER THIS SHOULD GREY OUT FALSIES
+            // for (let i of answerOptions) {
+            //     // console.log(Object.keys(i) == userAnswer.innerText.slice(0, 1))
+            // }
+            answer.innerText = `ANSWER: ${userAnswer.innerText.slice(2)} is CORRECT!!!`;
             summary.innerText = `${questionAnswers[qaIndex].summary}`;
-            nextQuestionBtn.style = '';
+            nextQuestionBtn.style.display = 'block';
         }, 150)
     } else {
+
         answer.innerText = 'ANSWER:';
         setTimeout(() => {
+            // userAnswer.style.color = 'darkgreen';
             answer.innerText = 'ANSWER: NOPE TRY AGAIN!!!';
             summary.innerText = '';
             nextQuestionBtn.style.display = 'none';
         }, 150)
     };
-});
-
-
-window.addEventListener('load', () => {
-    loadQandAs(questionAnswers, qaIndex);
-    return qaIndex;
 });
 
 // load next question
@@ -72,18 +75,25 @@ nextQuestionBtn.addEventListener('click', () => {
     return qaIndex;
 });
 
+document.addEventListener('DOMContentLoaded', () => {
+    loadQandAs(questionAnswers, qaIndex);
+    return qaIndex;
+});
+
+// INCLUDE AT END/BONUS??/
+// '<a href='https://www.youtube.com/channel/UCHDr4RtxwA1KqKGwxgdK4Vg'>Computer History Museum</a>'
+
 
 const questionAnswers = [{
-        question: 'In 1990 this computer scientist developed the fundamental technologies of the World Wide Web.',
+        question: 'In 1990 this computer scientist assembled the fundamental technologies of the World Wide Web.',
         answerOptions: [
             { A: 'Linus Torvalds' },
             { B: 'Bill Gates' },
             { C: 'Tim Berners-Lee' },
-            { D: 'Alan Turing' }
+            { D: 'Steve Jobs' }
         ],
         answer: 'C',
-        summary: "Berners-Lee was working at CERN, a particle physics lab in Switzerland. He noticed that visiting scientists coming from all over the world lacked a common protocol to share information over the internet.",
-        furtherReading: `FURTHER READING: <a href='https://webfoundation.org/about/sir-tim-berners-lee/' target="_blank">webfoundation.org: Sir Tim Berners-Lee</a>`,
+        summary: "While working at CERN, a particle physics lab in Switzerland, Berners-Lee noticed that visiting scientists lacked a common protocol to share information over the internet. So he made one.",
     },
     {
         question: 'This "law" states that computer performance speeds will double every two years.',
@@ -97,29 +107,29 @@ const questionAnswers = [{
         summary: 'In 1965 Gordon Moore was director of R&D at Fairchild Semiconductor. He observed and accurately predicted that the number of components on a semiconductor chip would double every two years.'
     },
     {
-        question: "Until it was officially changed in 2015 this was Google's corporate motto.",
+        question: "Until it was officially changed in 2015 this was Google's corporate motto:",
         answerOptions: [
-            { A: "Think Different" },
+            { A: "Where do you want to go today?" },
             { B: "Don't be evil" },
             { C: "Internet, easy" },
-            { D: "Where do you want to go today?" }
+            { D: "Think Different" }
         ],
         answer: "B",
-        summary: "In 2015 Google changed it's motto to 'Do the right thing'. "
+        summary: "The motto was adopted by the company's young founders early in it's incorporation. In 2015 Google changed it's motto to 'Do the right thing'. "
     },
     {
-        question: 'In ____ the UNIVAC computer was used to predict the results of a U.S. presidential election. On election night it correctly forecast a landslide victory for the candidate that was NOT favored by the media and pollsters.',
+        question: "The ______ was the first commercially produced electronic computer in the world. It accurately predicted the results of the 1952 U.S. presidential race.",
         answerOptions: [
-            { A: "1948" },
-            { B: "1952" },
-            { C: "1956" },
-            { D: "1960" }
+            { A: "IBM 1401" },
+            { B: "ENIAC" },
+            { C: "UNIVAC" },
+            { D: "Altair 8800" }
         ],
-        answer: "B",
-        summary: "The UNIVAC..."
+        answer: "C",
+        summary: "On election night 1952 the UNIVAC correctly forecast a landslide victory for Dwight Eisenhower, the candidate that was NOT favored by the media and pollsters. The legacy company that developed this machine evolved into today's Unisys Corporation."
     },
     {
-        question: 'This company is credited with development of the first computer to feature a graphical user interface (GUI).',
+        question: 'This company developed the first computer to feature a graphical user interface (GUI).',
         answerOptions: [
             { A: "Atari" },
             { B: "Xerox" },
@@ -127,7 +137,18 @@ const questionAnswers = [{
             { D: "Microsoft" }
         ],
         answer: "B",
-        summary: "In 1973 (nearly a decade before the first commercially available GUI computer was released) the Xerox Alto was designed and built at the company's Palo Alto Research Center. Apparently Xerox's east coast management didn't understand the revolutionary nature of the GUI technology and never tried to market it."
+        summary: "The Xerox Alto was designed and built at the company's Palo Alto Research Center in the 1970s. After visiting the facility in 1979 Steve Jobs began plans to develop Apple's first GUI-based computers."
+    },
+    {
+        question: "Northern California's Santa Clara Valley earned the moniker 'Silicon Valley' in the 1960s after several startups there began developing",
+        answerOptions: [
+            { A: "computers" },
+            { B: "televisions" },
+            { C: "telephones" },
+            { D: "semiconductors" }
+        ],
+        answer: "D",
+        summary: ""
     },
     {
         question: "After it's launch in 1998 Google's search engine gained industry dominance by utilizing a better method for",
@@ -138,33 +159,43 @@ const questionAnswers = [{
             { D: "targeting advertisements" }
         ],
         answer: "C",
-        summary: "At the time search engines ranked results by how often a searched term appeared on a web page. Google ranked results according to the number of relevant pages that linked to the page being evaluated."
+        summary: "At the time search engines ranked results by how often a searched term appeared as text on a web page. Google ranked results according to the number of relevant pages that linked to the page being evaluated."
     },
     {
-        question: "In 1980 IBM agreed to ship it's first line of personal computers with this Microsoft software installed. This deal eventually led to the Microsoft's dominance in the PC industry.",
+        question: "Inventor of the Analytical Engine; a nineteenth century contraption of mechanical gears capable of processing data. It was never built in his lifetime.",
         answerOptions: [
-            { A: "Word" },
-            { B: "MS-DOS" },
-            { C: "Internet Explorer" },
-            { D: "Windows" }
+            { A: "Nikola Tesla" },
+            { B: "Herman Hollerith" },
+            { C: "Thomas Edison" },
+            { D: "Charles Babbage" }
+        ],
+        answer: "D",
+        summary: "blah blah blah"
+    },
+    {
+        question: "In 1980 IBM agreed to ship it's first line of personal computers with this Microsoft software installed. This deal eventually led to Microsoft's dominance in the PC industry.",
+        answerOptions: [
+            { A: "Windows" },
+            { B: "DOS" },
+            { C: "Word" },
+            { D: "easyOS" }
         ],
         answer: "B",
-        summary: "Microsoft included a non-exclusive clause in the deal that allowed them to license DOS (their pre-Windows, command-line OS) to any company. Because IBM designed their PC using existing third-party components competitors were able to legally issue clones. DOS became the defacto OS for these machines."
+        summary: "Microsoft included a non-exclusive clause in the deal that allowed them to license DOS (their pre-Windows, command-line OS) to any company. Because IBM designed their PC using existing third-party components competitors were able to legally issue clones. DOS became the defacto OS for all of these machines."
     },
     {
-        question: 'Which option below is not a programming language?',
+        question: 'This nineteenth century Englishwoman is often credited as the author of the first computer algorithm',
         answerOptions: [
-            { A: "HTML" },
-            { B: "C++" },
-            { C: "JavaScript" },
-            { D: "Python" }
+            { A: "Ada Lovelace" },
+            { B: "Queen Victoria" },
+            { C: "Mary Shelley" },
+            { D: "Clara Barton" }
         ],
         answer: "A",
-        summary: ""
+        summary: "To demonstrate a possible application of Charles Babbage's 'Analytical Engine' Lovelace diagrammed steps the machine would have to go through to solve a mathematical sequence. She also speculated that the Analytical Engine could be used to manipulate any data with a fixed set of rules."
     },
-
     {
-        question: "The prototype of this social media app was initially developed as an internal communication tool at a failing podcast startup.",
+        question: "The prototype of this technology was initially developed at a failing podcast startup.",
         answerOptions: [
             { A: "Twitter" },
             { B: "Spotify" },
@@ -172,43 +203,41 @@ const questionAnswers = [{
             { D: "Facebook" }
         ],
         answer: "A",
-        summary: "Twitter co-founder Jack Dorsey conceived of the idea of an individual using a SMS service to communicate with a small group while working at Odeo. Odeo was a website that enabled users to create and share podcasts. It's assets were sold in 2007. "
+        summary: "Twitter founder Jack Dorsey had the idea for an SMS-based communication system while working at Odeo in 2006. Odeo was a website that allowed users to create and share podcasts."
     },
     {
-        question: "At it's root level a computer's processor is reading the state of discreet transistors: an electronic signal is read as 1 and a lack of signal is read as 0. This level of code is referred to as",
+        question: 'This is a slang term for an undocumented, often humorous featured included in piece of software.',
         answerOptions: [
-            { A: "C++" },
-            { B: "machine code" },
-            { C: "BASIC" },
-            { D: "assembly code" }
+            { A: "double whammy" },
+            { B: "easter egg" },
+            { C: "roman candle" },
+            { D: "surprise party" }
         ],
         answer: "B",
-        summary: ""
+        summary: "Apparently the term was first used in 1979 when a programmer (who felt he was underpaid) created a secret room with his name in an Atari video game."
     },
-
     {
         question: '______ designed the first Apple computer',
         answerOptions: [
-            { A: "Steve Wozniak" },
-            { B: "Steve Ballmer" },
-            { C: "Steve Jobs" },
-            { D: "Steve Kazniwookie" }
+            { A: "Steve Jobs" },
+            { B: "Paul Allen" },
+            { C: "Steve Wozniak" },
+            { D: "Bill Gates" }
         ],
-        answer: "A",
+        answer: "C",
         summary: "In 1975 Steve Wozniak designed and hand-built a computer that would become the Apple I. He and Steve Jobs assembled and sold them from a garage during the next year."
     },
     {
-        question: 'hotornot.com was an early 2000s website where users submitted pictures of themselves to be rated for attractiveness by others. A founder of which company below built a similar site in 2003?',
+        question: 'hotornot.com was an early 2000s website where users submitted pictures of themselves to be rated for attractiveness by others. A founder of which company built a similar site in 2003?',
         answerOptions: [
-            { A: "Facebook" },
+            { A: "Uber" },
             { B: "Airbnb" },
-            { C: "Uber" },
+            { C: "Facebook" },
             { D: "Instagram" }
         ],
-        answer: "A",
-        summary: "Mark Zuckerberg's ealy site was called facemash.com. The site presented female ID photos hacked from Harvard University dormitory sites and asked users to compare and rank them."
+        answer: "C",
+        summary: "Mark Zuckerberg's early site was called facemash.com. It presented female ID photos hacked from Harvard University dormitory websites and asked users to compare and rank them."
     },
-
     {
         question: "The first use of the word 'bug' to describe a computer malfunction came from a ",
         answerOptions: [
@@ -225,7 +254,7 @@ const questionAnswers = [{
         answerOptions: [
             { A: "Logic Gate" },
             { B: "Turing Test" },
-            { C: "Bill's Gate" },
+            { C: "Bill Gate" },
             { D: "Edison Test" }
         ],
         answer: "B",
@@ -243,7 +272,7 @@ const questionAnswers = [{
         summary: "Microsoft had bundled its Internet Explorer web browser with all Windows operating systems. They then claimed that the two pieces of software were the same product. The government's assertion was that this was done intentionally to kill competition from competing web browsers.",
     },
     {
-        question: 'In the early 2000s this was the dominant technology to play animations, games, audio and video on the internet. As HTML5 compliant browsers proliferated it has largely fallen out of use.',
+        question: 'In the early 2000s this was the dominant technology to add animations, interactivity and video playback to a website. As HTML5 compliant browsers proliferated it has largely fallen out of use.',
         answerOptions: [
             { A: "Flash" },
             { B: "Ruby" },
@@ -251,14 +280,8 @@ const questionAnswers = [{
             { D: "Java" }
         ],
         answer: "A",
-        summary: "had to download and update the player blah blah blah"
+        summary: "The Flash player was a plug-in for web browsers that had to be installed and updated by users. Much of the functionality provided by Flash was included as part of the HTML 5 specification and is now coded directly into web browsers."
     },
-
 ];
 
-
-// for (let i of questionAnswers) {
-//     for (let j of i.answerOptions) {
-//         console.log(Object.keys(j))
-//     }
-// }
+console.log(questionAnswers.length)
