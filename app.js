@@ -68,17 +68,23 @@ answerOptionContainer.addEventListener('click', (e) => {
     };
 });
 
-// load next question
-nextQuestionBtn.addEventListener('click', () => {
-    qaIndex++;
+// first question on page load
+document.addEventListener('DOMContentLoaded', () => {
+    randIndex(qaIndex)
     loadQandAs(questionAnswers, qaIndex);
     return qaIndex;
 });
 
-document.addEventListener('DOMContentLoaded', () => {
+
+// load next question
+nextQuestionBtn.addEventListener('click', () => {
+    randIndex(qaIndex)
     loadQandAs(questionAnswers, qaIndex);
+    console.log(randIndexArr)
     return qaIndex;
 });
+
+
 
 // INCLUDE AT END/BONUS??/
 // '<a href='https://www.youtube.com/channel/UCHDr4RtxwA1KqKGwxgdK4Vg'>Computer History Museum</a>'
@@ -107,7 +113,7 @@ const questionAnswers = [{
         summary: 'In 1965 Gordon Moore was director of R&D at Fairchild Semiconductor. He observed and accurately predicted that the number of components on a semiconductor chip would double every two years.'
     },
     {
-        question: "Until it was officially changed in 2015 this was Google's corporate motto:",
+        question: "Until it was officially changed in 2015 this was Google's corporate motto.",
         answerOptions: [
             { A: "Where do you want to go today?" },
             { B: "Don't be evil" },
@@ -115,7 +121,7 @@ const questionAnswers = [{
             { D: "Think Different" }
         ],
         answer: "B",
-        summary: "The motto was adopted by the company's young founders early in it's incorporation. In 2015 Google changed it's motto to 'Do the right thing'. "
+        summary: "The motto was adopted by the company's young founders early in it's incorporation. In 2015 Google changed it to 'Do the right thing'. "
     },
     {
         question: "The ______ was the first commercially produced electronic computer in the world. It accurately predicted the results of the 1952 U.S. presidential race.",
@@ -137,7 +143,7 @@ const questionAnswers = [{
             { D: "Microsoft" }
         ],
         answer: "B",
-        summary: "The Xerox Alto was designed and built at the company's Palo Alto Research Center in the 1970s. After visiting the facility in 1979 Steve Jobs began plans to develop Apple's first GUI-based computers."
+        summary: "The Xerox Alto was designed and built at the company's Palo Alto Research Center in the 1970s. After visiting the facility in 1979 Steve Jobs began plans to develop Apple's first GUI-based operating system."
     },
     {
         question: "Northern California's Santa Clara Valley earned the moniker 'Silicon Valley' in the 1960s after several startups there began developing",
@@ -148,7 +154,8 @@ const questionAnswers = [{
             { D: "semiconductors" }
         ],
         answer: "D",
-        summary: ""
+        summary: "The new semiconductor technology allowed electrical circuits to be made smaller and smaller. During the 1960s the research and development at semiconductor companies was funded largely by the U.S. government to compete with Cold War Era Soviet projects. "
+        // summary: "Because of its atomic structure silicon can be made to either let electrons flow through it or block electron flow. Hence the term semiconductor."
     },
     {
         question: "After it's launch in 1998 Google's search engine gained industry dominance by utilizing a better method for",
@@ -159,10 +166,10 @@ const questionAnswers = [{
             { D: "targeting advertisements" }
         ],
         answer: "C",
-        summary: "At the time search engines ranked results by how often a searched term appeared as text on a web page. Google ranked results according to the number of relevant pages that linked to the page being evaluated."
+        summary: "At the time competing search engines ranked results by how often a searched term appeared as text on a web page. Google ranked results according to the number of relevant pages that linked to the page being evaluated."
     },
     {
-        question: "Inventor of the Analytical Engine; a nineteenth century contraption of mechanical gears capable of processing data. It was never built in his lifetime.",
+        question: "In the nineteenth century this man conceived of the Analytical Engine: a contraption of program-controlled mechanical gears capable of processing any calculation. It was never successfully built in his lifetime.",
         answerOptions: [
             { A: "Nikola Tesla" },
             { B: "Herman Hollerith" },
@@ -170,7 +177,7 @@ const questionAnswers = [{
             { D: "Charles Babbage" }
         ],
         answer: "D",
-        summary: "blah blah blah"
+        summary: "The design of the Analytical Engine is considered to be the first historical conception of a modern computer."
     },
     {
         question: "In 1980 IBM agreed to ship it's first line of personal computers with this Microsoft software installed. This deal eventually led to Microsoft's dominance in the PC industry.",
@@ -181,10 +188,10 @@ const questionAnswers = [{
             { D: "easyOS" }
         ],
         answer: "B",
-        summary: "Microsoft included a non-exclusive clause in the deal that allowed them to license DOS (their pre-Windows, command-line OS) to any company. Because IBM designed their PC using existing third-party components competitors were able to legally issue clones. DOS became the defacto OS for all of these machines."
+        summary: "DOS was Microsoft's pre-Windows, command-line operating system. They included a non-exclusive clause in the deal with IBM which allowed them to license the product to any company. Because IBM designed their PC using existing third-party components competitors were able to legally issue clones. DOS became the defacto OS for all of these machines."
     },
     {
-        question: 'This nineteenth century Englishwoman is often credited as the author of the first computer algorithm',
+        question: 'This nineteenth century Englishwoman is often credited as the author of the first algorithm',
         answerOptions: [
             { A: "Ada Lovelace" },
             { B: "Queen Victoria" },
@@ -192,7 +199,7 @@ const questionAnswers = [{
             { D: "Clara Barton" }
         ],
         answer: "A",
-        summary: "To demonstrate a possible application of Charles Babbage's 'Analytical Engine' Lovelace diagrammed steps the machine would have to go through to solve a mathematical sequence. She also speculated that the Analytical Engine could be used to manipulate any data with a fixed set of rules."
+        summary: "To demonstrate a possible application of Charles Babbage's 'Analytical Engine' Lovelace diagrammed steps the machine would have to go through to solve a mathematical sequence. "
     },
     {
         question: "The prototype of this technology was initially developed at a failing podcast startup.",
@@ -206,7 +213,7 @@ const questionAnswers = [{
         summary: "Twitter founder Jack Dorsey had the idea for an SMS-based communication system while working at Odeo in 2006. Odeo was a website that allowed users to create and share podcasts."
     },
     {
-        question: 'This is a slang term for an undocumented, often humorous featured included in piece of software.',
+        question: 'This is a slang term for an undocumented, hidden and often humorous feature included in piece of software.',
         answerOptions: [
             { A: "double whammy" },
             { B: "easter egg" },
@@ -214,7 +221,7 @@ const questionAnswers = [{
             { D: "surprise party" }
         ],
         answer: "B",
-        summary: "Apparently the term was first used in 1979 when a programmer (who felt he was underpaid) created a secret room with his name in an Atari video game."
+        summary: "Apparently the term was first used in 1979 when an Atari programmer who thought he was underpaid added his name to a secret room in a game."
     },
     {
         question: '______ designed the first Apple computer',
@@ -225,7 +232,7 @@ const questionAnswers = [{
             { D: "Bill Gates" }
         ],
         answer: "C",
-        summary: "In 1975 Steve Wozniak designed and hand-built a computer that would become the Apple I. He and Steve Jobs assembled and sold them from a garage during the next year."
+        summary: "In 1975 Steve Wozniak designed and hand-built a computer that would become the Apple I. He and Steve Jobs assembled and sold the circuit boards from a garage during the next year."
     },
     {
         question: 'hotornot.com was an early 2000s website where users submitted pictures of themselves to be rated for attractiveness by others. A founder of which company built a similar site in 2003?',
@@ -241,9 +248,9 @@ const questionAnswers = [{
     {
         question: "The first use of the word 'bug' to describe a computer malfunction came from a ",
         answerOptions: [
-            { A: "1970s hacker who went by the moniker 'electro_fly'" },
+            { A: "1980s hacker who went by the moniker 'electro_fly'" },
             { B: "fried transistor that resembled an insect" },
-            { C: "failed 1960s NASA spy satellite code named 'dragon-fly'" },
+            { C: "failed 1960s NASA spy satellite code named 'praying-mantis'" },
             { D: "dead moth found in an electro-mechanical relay" }
         ],
         answer: "D",
@@ -264,7 +271,7 @@ const questionAnswers = [{
         question: "In 1998 the U.S. Department of Justice and the Attorneys General of twenty U.S. states sued this company for 'illegally thwarting competition in order to protect and extend its monopoly'.",
         answerOptions: [
             { A: "Apple" },
-            { B: "Facebook" },
+            { B: "IBM" },
             { C: "Amazon" },
             { D: "Microsoft" }
         ],
@@ -280,8 +287,28 @@ const questionAnswers = [{
             { D: "Java" }
         ],
         answer: "A",
-        summary: "The Flash player was a plug-in for web browsers that had to be installed and updated by users. Much of the functionality provided by Flash was included as part of the HTML 5 specification and is now coded directly into web browsers."
+        summary: "The Flash player was a plug-in for web browsers that had to be installed and updated by users. Much of the functionality provided by Flash was included in the HTML5 specification and is now hard-coded into your browser."
     },
 ];
 
-console.log(questionAnswers.length)
+
+let randIndexArr = [];
+
+function randIndex(index) {
+    if (randIndexArr.length == questionAnswers.length) {
+        alert('time for easter!')
+        randIndexArr = [];
+    }
+    for (let i = 0; i < questionAnswers.length; i++) {
+        let randNum = Math.floor(Math.random() * questionAnswers.length);
+        if (randIndexArr.indexOf(randNum) != -1) {
+            continue;
+        } else {
+            randIndexArr.push(randNum);
+            return qaIndex = randNum;
+        }
+    }
+};
+
+
+// console.log(qaIndex, randIndexArr)
