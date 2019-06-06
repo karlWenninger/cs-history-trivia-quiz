@@ -1,6 +1,6 @@
 * {
     margin: auto;
-    /*box-sizing: border-box;*/
+    box-sizing: border-box;
 }
 
 body {
@@ -8,19 +8,19 @@ body {
 }
 
 .container {
-    width: 70%;
-    min-height: 60vh;
-    margin-top: 5vh;
+    width: 85%;
+    min-height: 95vh;
+    margin-top: 3vh;
     padding: 30px;
-    background: #111;
+    background: #222;
     color: lightgreen;
     font-family: monospace;
     font-size: 1.2em;
-    border-radius: 5%;
-    border: solid #8e814a 8px;
+    border-radius: 1%;
+    border: solid #8e814a 5px;
 }
 
-hr.dashing {
+hr.dashed {
     border: 1px dashed lightgreen;
     margin: 1.2em 0;
 }
@@ -34,7 +34,8 @@ ul {
     margin-bottom: 1em;
 }
 
-#answer, #summary {
+#answer,
+#summary {
     margin-top: 1em;
 }
 
@@ -52,4 +53,19 @@ ul {
 
 .pointer:hover {
     background: darkgreen;
+}
+
+@media screen and (min-width: 768px) {
+    .container {
+        width: 70%;
+        min-height: 75vh;
+        margin-top: 12vh;
+        border: solid #8e814a 10px;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .container {
+        width: 60%;
+    }
 }
