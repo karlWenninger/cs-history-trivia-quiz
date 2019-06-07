@@ -1,5 +1,6 @@
 * {
     margin: auto;
+    /*height: 100%;*/
     box-sizing: border-box;
 }
 
@@ -8,7 +9,7 @@ body {
 }
 
 .container {
-    width: 85%;
+    width: 90%;
     min-height: 95vh;
     margin-top: 3vh;
     padding: 30px;
@@ -16,8 +17,7 @@ body {
     color: lightgreen;
     font-family: monospace;
     font-size: 1.2em;
-    border-radius: 1%;
-    border: solid #8e814a 5px;
+
 }
 
 hr.dashed {
@@ -55,16 +55,25 @@ ul {
     background: darkgreen;
 }
 
+
+
+
 @media screen and (min-width: 768px) {
+    body {
+        background: #000;
+    }
+
     .container {
         width: 70%;
         min-height: 75vh;
         margin-top: 12vh;
-        border: solid #8e814a 10px;
+        border-radius: 1%;
+        border: solid #8e814a 5px;
     }
 }
 
 @media screen and (min-width: 1200px) {
+
     .container {
         width: 60%;
     }
