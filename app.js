@@ -93,7 +93,7 @@ const questionAnswers = [{
             { A: "Atari" },
             { B: "Xerox" },
             { C: "Apple" },
-            { D: "Microsoft" }
+            { D: "IBM" }
         ],
         answer: "B",
         summary: "The Xerox Alto was designed and built at the company's Palo Alto Research Center in the 1970s. Apparently Xerox's east coast management never understood the revolutionary nature of the technology. After visiting the facility in 1979 Steve Jobs began plans to develop Apple's first GUI-based operating system."
@@ -231,20 +231,17 @@ const answer = document.querySelector('#answer');
 
 const summary = document.querySelector('#summary');
 
-const nextQuestionBtn = document.querySelector('#next-question-btn');
-
-const completeQuizScreen = document.querySelector('#complete-quiz-screen');
-completeQuizScreen.style.display = 'none';
+const navBtn = document.querySelector('#nav-btn');
 
 // cycle thru questionsAnswers
 let qaIndex = 0;
 
 let answerOptions;
 
-function loadQandAs(questionAnswers, qaIndex) {
-    question.innerText = `QUESTION: ${questionAnswers[qaIndex].question}`;
+function loadQandAs(arr, index) {
+    question.innerText = `QUESTION: ${arr[index].question}`;
 
-    answerOptions = questionAnswers[qaIndex].answerOptions;
+    answerOptions = arr[index].answerOptions;
 
     // clear for each new question answerOptions
     answerOptionContainer.innerHTML = '';
@@ -257,16 +254,16 @@ function loadQandAs(questionAnswers, qaIndex) {
         answerOptionContainer.appendChild(li.cloneNode(true));
     }
     // clear UI items (displayed only on correct answer)
-    answer.innerText = 'ANSWER:';
+    answer.innerText = '';
     summary.innerText = '';
-    nextQuestionBtn.style.display = 'none'
+    navBtn.style.display = 'none'
 };
 
 
 let clickCount = 0;
 let correctAnswers = 0;
 
-// get clicked answer-option
+// get user clicked answer-option
 answerOptionContainer.addEventListener('click', (e) => {
     // target user click
     if (e.target.classList.contains('answer-option')); {
@@ -275,22 +272,28 @@ answerOptionContainer.addEventListener('click', (e) => {
 
     if (userAnswer.innerText.slice(0, 1) == `${questionAnswers[qaIndex].answer}`) {
         clickCount++;
+        answer.innerText = `ANSWER: ${userAnswer.innerText.slice(2)} is CORRECT!!!`;
 
         setTimeout(() => {
-            answer.innerText = `ANSWER: ${userAnswer.innerText.slice(2)} is CORRECT!!!`;
             summary.innerText = `${questionAnswers[qaIndex].summary}`;
-            nextQuestionBtn.style.display = 'block';
-        }, 150)
+            navBtn.innerText = 'NEXT QUESTION';
+            navBtn.style.display = 'block';
+        }, 200)
     } else {
         clickCount++;
 
         answer.innerText = 'ANSWER:';
-        setTimeout(() => {
-            // userAnswer.style.color = 'darkgreen';
+        navBtn.style.display = 'none';
+        summary.innerText = '';
+
+        if (clickCount == 1) {
             answer.innerText = 'ANSWER: NOPE TRY AGAIN!!!';
-            summary.innerText = '';
-            nextQuestionBtn.style.display = 'none';
-        }, 150)
+            // flash alert
+        } else {
+            setTimeout(() => {
+                answer.innerText = 'ANSWER: NOPE TRY AGAIN!!!';
+            }, 150)
+        }
     };
 });
 
@@ -300,7 +303,7 @@ let randIndexArr = [];
 
 function makeRandIndex(arr) {
     for (let i = 0; i < arr.length; i++) {
-        let randNum = Math.floor(Math.random() * questionAnswers.length);
+        let randNum = Math.floor(Math.random() * arr.length);
         if (randIndexArr.indexOf(randNum) == -1) {
             randIndexArr.push(randNum);
             return qaIndex = randNum;
@@ -308,18 +311,31 @@ function makeRandIndex(arr) {
     }
 }
 
-// load next question, track correctAnswers
-nextQuestionBtn.addEventListener('click', () => {
+// load next question, track correctAnswers 
+// btn is hidden until correct answer selected
+navBtn.addEventListener('click', () => {
     if (clickCount == 1) {
         correctAnswers++;
     }
     clickCount = 0;
 
-
+    // if all questions completed 
     if (randIndexArr.length == questionAnswers.length) {
+        question.innerText = `congrats you got ${correctAnswers} out of ${questionAnswers.length} correct on your first try!!!`;
         randIndexArr = [];
-        completeQuizScreen.style.display = 'inline';
-        alert(`congrats you got ${correctAnswers} out of ${questionAnswers.length} correct!!!`)
+        answer.innerText = '';
+        summary.innerText = '';
+        answerOptionContainer.innerHTML = '';
+
+        const li = document.createElement('li');
+        li.innerHTML = `here's a great 1996 documentary on the history of personal computer:
+        <a href='https://www.youtube.com/watch?v=sX5g0kidk3Y&t=2495s target="_blank"'>Triumph of the Nerds</a>`
+
+
+        answerOptionContainer.appendChild(li);
+        navBtn.innerText = 'DO QUIZ AGAIN';
+
+        // load new question
     } else {
         makeRandIndex(questionAnswers);
         loadQandAs(questionAnswers, qaIndex);
