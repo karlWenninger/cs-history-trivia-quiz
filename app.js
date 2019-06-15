@@ -43,7 +43,7 @@ const questionAnswers = [{
         summary: "In 1956 Bill Shockley, one of the inventors of the transistor, founded Shockley Semiconductor Labs in Mountain View. His employees would go on to start Fairchild Semiconductor and eventually Intel. Semiconductor technology allows electronic circuits to be miniaturized by printing them on silicon 'chips'."
     },
     {
-        question: 'The prototype of this technology was initially developed at a failing podcast startup.',
+        question: 'The prototype of this technology was initially used internally between employees at a failing podcast startup.',
         answerOptions: [
             { A: "Twitter" },
             { B: "Spotify" },
@@ -51,7 +51,7 @@ const questionAnswers = [{
             { D: "Facebook" }
         ],
         answer: "A",
-        summary: "Twitter founder Jack Dorsey had the idea for an SMS-based communication system while working at Odeo in 2006. Odeo was a website that allowed users to create and share podcasts."
+        summary: "Founder Jack Dorsey developed the SMS-based communication system that was to become Twitter while working at Odeo in 2006. Odeo was a website that allowed users to create and share podcasts."
     },
     {
         question: 'In 1974 this microcomputer was sold as a hardware kit that had to be assembled by the user. It is considered to be the first commercially available personal computer.',
@@ -107,7 +107,7 @@ const questionAnswers = [{
             { D: "targeting advertisements" }
         ],
         answer: "C",
-        summary: "At the time competing search engines ranked results by how often a searched term appeared as text on a web page. Google ranked results according to the number of relevant pages that linked to the page being evaluated."
+        summary: "At the time competing search engines ranked results by how often a searched term appeared as text on a web page. Google ranked results according to the number of related sites that linked to the site being evaluated."
     },
 
     {
@@ -130,7 +130,7 @@ const questionAnswers = [{
             { D: "Excel" }
         ],
         answer: "B",
-        summary: "Microsoft included a non-exclusive clause in the deal to provide IBM with this pre-GUI, command-line operating system. Because IBM designed their PC using third-party components competitors were able to easily issue clones. DOS became the defacto OS for all of these machines."
+        summary: "Microsoft included a non-exclusive clause in the deal to provide IBM with this command-line operating system. Because IBM designed their PC using third-party components competitors were able to easily issue clones. DOS became the defacto OS for all of these machines."
     },
     {
         question: 'This nineteenth century Englishwoman is often credited as the author of the first algorithm:',
@@ -166,10 +166,10 @@ const questionAnswers = [{
         summary: "As a Harvard University student Mark Zuckerberg built a site called facemash.com. It presented female ID photos hacked from university dormitory sites and asked users to compare and rank them."
     },
     {
-        question: "This machine accurately predicted the results of the 1952 U.S. presidential race. It was also the world's first commercially available electronic computer.",
+        question: "This machine accurately predicted the results of the 1952 U.S. presidential race. It was the world's first commercially available electronic computer.",
         answerOptions: [
             { A: "IBM 1401" },
-            { B: "BRAINIAC I" },
+            { B: "BRAINIAC 200" },
             { C: "UNIVAC I" },
             { D: "Altair 8800" }
         ],
@@ -201,10 +201,10 @@ const questionAnswers = [{
     {
         question: "To pass a _______ a machine must exhibit intelligent behavior indistinguishable from that of a human.",
         answerOptions: [
-            { A: "Logic Gate" },
+            { A: "Boolean Test" },
             { B: "Turing Test" },
-            { C: "Bill Gate" },
-            { D: "Edison Test" }
+            { C: "Logic Gate" },
+            { D: "Bill Gate" }
         ],
         answer: "B",
         summary: 'Englishman Alan Turing is widely considered to be the father of theoretical computer science and artificial intelligence. The Turing Test was proposed in his 1950 paper "Computing Machinery and Intelligence".'
@@ -222,7 +222,8 @@ const questionAnswers = [{
     },
 ];
 
-// get html elements
+
+// make HTML elements
 const question = document.querySelector('#question');
 
 const answerOptionContainer = document.querySelector('#answer-option-container');
@@ -321,18 +322,38 @@ navBtn.addEventListener('click', () => {
 
     // if all questions completed 
     if (randIndexArr.length == questionAnswers.length) {
-        question.innerText = `congrats you got ${correctAnswers} out of ${questionAnswers.length} correct on your first try!!!`;
-        randIndexArr = [];
+        question.innerText = '';
         answer.innerText = '';
         summary.innerText = '';
         answerOptionContainer.innerHTML = '';
 
-        const li = document.createElement('li');
-        li.innerHTML = `here's a great 1996 documentary on the history of personal computer:
-        <a href='https://www.youtube.com/watch?v=sX5g0kidk3Y&t=2495s target="_blank"'>Triumph of the Nerds</a>`
+        const endLinks = document.createElement('div');
+        endLinks.innerHTML = `<h4>YOU ANSWERED ${correctAnswers} OUT OF ${questionAnswers.length} CORRECTLY ON THE FIRST CLICK. CONGRATS!!!</h4>              
+        <br>
+        <p>If you liked these questions here's some more stuff you'll enjoy:</p>
+        <br><br>
+        <div>
+        <h4><a href='https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo' target='_blank'>Crash Course: Computer Science (2017)</a></h4>
+        <p>Forty short episodes covering the evolution of computer technology and the history that goes with it. Get's deep into CS while remaining accessible to those without engineering degrees.</p>
+        </div>
+        <br>
+        <div>
+        <h4><a href='https://vimeo.com/124201377' target='_blank'>The Triumph of the Nerds: The Rise of Accidental Empires (1996)</a></h4>
+        <p>A three-part documentary chronicling the personal computer industry from its' birth in the 1970s to the mid-90s dotcom boom.</p>
+        </div>
+        <br>
+        <div>
+        <h4><a href='https://www.pbs.org/wgbh/americanexperience/features/silicon-chapter-one/' target='_blank'>American Expirience: Silicon Valley (2013)</a></h4>
+        <p>This episode of American Expirience documents a group of eight young men who in 1957 left one of the first transitor companies and invented the microchip.</p>
+        </div>
+       `
 
 
-        answerOptionContainer.appendChild(li);
+
+        question.appendChild(endLinks)
+
+        correctAnswers = 0;
+        randIndexArr = [];
         navBtn.innerText = 'DO QUIZ AGAIN';
 
         // load new question

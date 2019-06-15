@@ -32,6 +32,7 @@ ul {
 
 .answer-option {
     margin-bottom: 1em;
+    padding: .2em;
 }
 
 #answer,
@@ -41,8 +42,8 @@ ul {
 
 #nav-btn {
     margin-top: 3em;
-    padding: .2em;
-    width: 130px;
+    padding: .3em;
+    width: 120px;
     text-align: center;
     border: dashed lightgreen 1px;
 }
@@ -55,6 +56,10 @@ ul {
     background: darkgreen;
 }
 
+a {
+    color: lightgreen;
+    text-decoration: none;
+}
 
 
 
