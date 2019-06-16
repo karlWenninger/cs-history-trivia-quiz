@@ -1,6 +1,5 @@
 * {
-    margin: auto;
-    /*height: 100%;*/
+    margin: 0 auto;
     box-sizing: border-box;
 }
 
@@ -9,12 +8,13 @@ body {
 }
 
 .container {
-    width: 90%;
-    min-height: 95vh;
-    margin-top: 3vh;
-    padding: 30px;
+    width: 95vw;
+    height: 85vh;
+    margin-top: 10%;
+    padding: 10% 5%;
     background: #222;
     color: lightgreen;
+    border-radius: 2%;
     font-family: monospace;
     font-size: 1.2em;
 
@@ -58,28 +58,21 @@ ul {
 
 a {
     color: lightgreen;
-    text-decoration: none;
+    /*text-decoration: none;*/
 }
 
-
-
 @media screen and (min-width: 768px) {
-    body {
-        background: #000;
-    }
-
     .container {
-        width: 70%;
-        min-height: 75vh;
-        margin-top: 12vh;
-        border-radius: 1%;
-        border: solid #8e814a 5px;
+        width: 85vw;
+        height:  70vh;
+        margin-top: 5%;
+        padding: 5% 3%;
     }
 }
 
 @media screen and (min-width: 1200px) {
-
     .container {
-        width: 60%;
+        width: 75vw;
+        padding: 3%;
     }
 }
