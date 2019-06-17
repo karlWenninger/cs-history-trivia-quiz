@@ -96,7 +96,7 @@ navBtn.addEventListener('click', () => {
         answerOptionContainer.innerHTML = '';
 
         const endMsg = document.createElement('div');
-        endMsg.innerHTML = `<h4>YOU ANSWERED ${correctAnswers} OUT OF ${questionAnswers.length} CORRECTLY ON THE FIRST CLICK. CONGRATS!!!</h4><br><p>If you liked these questions here's some more stuff you'll enjoy:</p><br>${endMsgAndLinks}`;
+        endMsg.innerHTML = `<h4>YOU ANSWERED ${correctAnswers} OUT OF ${questionAnswers.length} CORRECTLY ON THE FIRST CLICK. CONGRATS!!!</h4><br><p>If you liked these questions here's some more stuff you'll enjoy:</p>${endMsgLinks}`;
         question.appendChild(endMsg);
         correctAnswers = 0;
         randIndexArr = [];

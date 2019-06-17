@@ -64,7 +64,6 @@ const questionAnswers = [{
         answer: "B",
         summary: "After seeing an article about the Altair in Popular Electronics magazine a young Bill Gates wrote some software for it. This was to become Microsoft's founding product."
     },
-
     {
         question: "In the nineteenth century this man designed the 'Analytical Engine': a contraption of program-controlled mechanical gears theoretically capable of performing any calculation. ",
         answerOptions: [
@@ -109,7 +108,6 @@ const questionAnswers = [{
         answer: "C",
         summary: "At the time competing search engines ranked results by how often a searched term appeared as text on a web page. Google ranked results according to the number of related sites that linked to the site being evaluated."
     },
-
     {
         question: 'This "law" states that computer performance speeds will double every two years.',
         answerOptions: [
@@ -223,8 +221,8 @@ const questionAnswers = [{
 ];
 
 
-const endMsgAndLinks = 
-       ` <br><br>
+const endMsgLinks = 
+       `<br>
         <div>
         <h4><a href='https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo' target='_blank'>Crash Course: Computer Science (2017)</a></h4>
         <p>Forty short episodes covering the evolution of computer technology and the history that goes with it. Gets deep into CS while remaining accessible to those without extensive math/engineering backgrounds.</p>
@@ -237,6 +235,6 @@ const endMsgAndLinks =
         <br>
         <div>
         <h4><a href='https://www.pbs.org/wgbh/americanexperience/features/silicon-chapter-one/' target='_blank'>American Expirience: Silicon Valley (2013)</a></h4>
-        <p>This episode of American Expirience documents a group of eight young men who in 1957 left one of the first transitor companies and invented the  microchip.</p>
+        <p>This episode of American Expirience documents the "Traitorous Eight"; a group of young men who in 1957 quit a fledgling transitor company to start their own. Together they invented the microchip and eventually founded Intel.</p>
         </div>
        `;
