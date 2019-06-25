@@ -3,7 +3,7 @@ const question = document.querySelector('#question');
 const answerOptionContainer = document.querySelector('#answer-option-container');
 const answer = document.querySelector('#answer');
 const summary = document.querySelector('#summary');
-const navBtn = document.querySelector('#nav-btn');
+const nextBtn = document.querySelector('#next-btn');
 
 // cycle thru questionsAnswers
 let qaIndex = 0;
@@ -26,7 +26,7 @@ function loadQandAs(arr, index) {
     // clear UI items (displayed only on correct answer)
     answer.innerText = '';
     summary.innerText = '';
-    navBtn.style.display = 'none'
+    nextBtn.style.display = 'none'
 };
 
 
@@ -46,14 +46,14 @@ answerOptionContainer.addEventListener('click', (e) => {
 
         setTimeout(() => {
             summary.innerText = `${questionAnswers[qaIndex].summary}`;
-            navBtn.innerText = 'NEXT QUESTION';
-            navBtn.style.display = 'block';
+            nextBtn.innerText = 'NEXT QUESTION';
+            nextBtn.style.display = 'block';
         }, 200)
     } else {
         clickCount++;
 
         answer.innerText = 'ANSWER:';
-        navBtn.style.display = 'none';
+        nextBtn.style.display = 'none';
         summary.innerText = '';
 
         if (clickCount == 1) {
@@ -82,7 +82,7 @@ function makeRandIndex(arr) {
 
 // load next question, track correctAnswers 
 // btn is hidden until correct answer selected
-navBtn.addEventListener('click', () => {
+nextBtn.addEventListener('click', () => {
     if (clickCount == 1) {
         correctAnswers++;
     }
@@ -100,7 +100,7 @@ navBtn.addEventListener('click', () => {
         question.appendChild(endMsg);
         correctAnswers = 0;
         randIndexArr = [];
-        navBtn.innerText = 'DO QUIZ AGAIN';
+        nextBtn.innerText = 'DO QUIZ AGAIN';
 
         // load new question
     } else {
