@@ -1,10 +1,10 @@
 const questionAnswers = [{
         question: "The first use of the word 'bug' to describe a computer malfunction came from a ",
         answerOptions: [
-            { A: "1980s hacker who went by the moniker 'electro_fly'" },
-            { B: "fried transistor that resembled an insect" },
-            { C: "failed 1960s NASA spy satellite code named 'praying-mantis'" },
-            { D: "dead moth found in an electro-mechanical relay" }
+            { A: "1980s hacker who went by the moniker 'electro_fly'." },
+            { B: "fried transistor that resembled an insect." },
+            { C: "failed 1960s NASA spy satellite code named 'praying-mantis.'" },
+            { D: "dead moth found in an electro-mechanical relay." }
         ],
         answer: "D",
         summary: "On September 9th, 1947 programmer Grace Hopper wrote in the Harvard Mark II computer's log book 'First actual case of bug being found'. This was after a problem with the machine was traced to a moth stuck between relay contacts."
@@ -26,7 +26,7 @@ const questionAnswers = [{
             { A: 'Linus Torvalds' },
             { B: 'Bill Gates' },
             { C: 'Tim Berners-Lee' },
-            { D: 'Steve Jobs' }
+            { D: 'Guido van Rossum' }
         ],
         answer: 'C',
         summary: "While working at CERN (a particle physics lab in Switzerland) Berners-Lee noticed that visiting scientists lacked a common protocol to share information over the internet. So he built one.",
@@ -34,7 +34,7 @@ const questionAnswers = [{
     {
         question: "In the early 1970s a journalist dubbed Northern California's Santa Clara Valley 'Silicon Valley'. This was due to the number of companies in the area developing this technology:",
         answerOptions: [
-            { A: "transformers" },
+            { A: "flux-capacitors" },
             { B: "personal computers" },
             { C: "the internet" },
             { D: "semiconductors" }
@@ -62,7 +62,7 @@ const questionAnswers = [{
             { D: "IBM PC" }
         ],
         answer: "B",
-        summary: "After seeing an article about the Altair in Popular Electronics magazine a young Bill Gates wrote some software for it. This was to become Microsoft's founding product."
+        summary: "After seeing an article about the Altair in Popular Electronics magazine a young Bill Gates wrote software for it. This was to become Microsoft's founding product."
     },
     {
         question: "In the nineteenth century this man designed the 'Analytical Engine': a contraption of program-controlled mechanical gears theoretically capable of performing any calculation. ",
@@ -131,7 +131,7 @@ const questionAnswers = [{
         summary: "Microsoft included a non-exclusive clause in the deal to provide IBM with this command-line operating system. Because IBM designed their PC using third-party components competitors were able to easily issue clones. DOS became the defacto OS for all of these machines."
     },
     {
-        question: 'This nineteenth century Englishwoman is often credited as the author of the first algorithm:',
+        question: 'This nineteenth century Englishwoman is often credited as the author of the first algorithm.',
         answerOptions: [
             { A: "Ada Lovelace" },
             { B: "Queen Victoria" },
@@ -164,15 +164,15 @@ const questionAnswers = [{
         summary: "As a Harvard University student Mark Zuckerberg built a site called facemash.com. It presented female ID photos hacked from university dormitory sites and asked users to compare and rank them."
     },
     {
-        question: "This machine accurately predicted the results of the 1952 U.S. presidential race. It was the world's first commercially available electronic computer.",
+        question: "This machine accurately predicted the results of the 1952 U.S. presidential race.",
         answerOptions: [
             { A: "IBM 1401" },
-            { B: "BRAINIAC 200" },
-            { C: "UNIVAC I" },
+            { B: "BRAINIAC" },
+            { C: "UNIVAC" },
             { D: "Altair 8800" }
         ],
         answer: "C",
-        summary: "On election night 1952 the UNIVAC correctly forecast a landslide victory for Dwight Eisenhower, the candidate that was NOT favored by the media and pollsters. The legacy company that developed this technology evolved into today's Unisys Corporation."
+        summary: "On election night 1952 the UNIVAC correctly forecast a landslide victory for Dwight Eisenhower, the candidate that was NOT favored by the media and pollsters. The computer itself was in Philadelphia. As a background prop for the New York live television broadcast NBC studios rigged up a dummy box with flashing christmas tree lights. This was the first time that many Americans saw a 'computer'."
     },
     {
         question: "The first version of this website was built because its founders felt placing an ad on Craigslist was too impersonal.",
@@ -216,7 +216,7 @@ const questionAnswers = [{
             { D: "xmas in july" }
         ],
         answer: "B",
-        summary: "Apparently the term was first used in 1979 when an underpaid Atari programmer secretly inserted his name into a room in a game. Google 'do a barrel roll'."
+        summary: "Apparently the term was first used in 1979 after an underpaid Atari programmer secretly inserted his name inside a room in a game."
     },
 ];
 
@@ -235,6 +235,6 @@ const endMsgLinks =
         <br>
         <div>
         <h4><a href='https://www.pbs.org/wgbh/americanexperience/features/silicon-chapter-one/' target='_blank'>American Expirience: Silicon Valley (2013)</a></h4>
-        <p>This episode of American Expirience documents the "Traitorous Eight"; a group of young men who in 1957 quit a fledgling transitor company to start their own. Together they invented the microchip and eventually founded Intel.</p>
+        <p>This episode of American Expirience documents the "Traitorous Eight"; a group of young men who in 1957 quit a fledgling transitor company to start their own. Together they invented the microchip and redefined American corporate culture.</p>
         </div>
        `;

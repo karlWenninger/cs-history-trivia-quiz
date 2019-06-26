@@ -9,6 +9,7 @@ body {
 
 .container {
     position: relative;
+    overflow: hidden;
     width: 95vw;
     height: 90vh;
     margin-top: 10%;
@@ -62,6 +63,30 @@ ul {
 a {
     color: lightgreen;
 }
+
+#flyin-egg {
+    position: absolute;
+    left: -120px;
+    top: 40%;
+    width: 120px;
+    height: auto;
+}
+
+.move-da-egg {
+    animation: movinEgg 6s linear 2s;
+}
+
+@keyframes movinEgg {
+    from {
+        left: -120px;
+    }
+
+    to {
+        left: 100%;
+    }
+}
+
+
 
 @media screen and (min-width: 768px) {
     .container {

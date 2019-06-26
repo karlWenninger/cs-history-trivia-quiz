@@ -8,6 +8,7 @@ const nextBtn = document.querySelector('#next-btn');
 // cycle thru questionsAnswers
 let qaIndex = 0;
 let answerOptions;
+
 function loadQandAs(arr, index) {
     question.innerText = `QUESTION: ${arr[index].question}`;
 
@@ -43,12 +44,16 @@ answerOptionContainer.addEventListener('click', (e) => {
     if (userAnswer.innerText.slice(0, 1) == `${questionAnswers[qaIndex].answer}`) {
         clickCount++;
         answer.innerText = `ANSWER: ${userAnswer.innerText.slice(2)} is CORRECT!!!`;
+        console.log(userAnswer.innerText.slice(2))
 
+        if (userAnswer.innerText.slice(2) == ' easter egg') {
+            flyinEgg();
+        }
         setTimeout(() => {
             summary.innerText = `${questionAnswers[qaIndex].summary}`;
             nextBtn.innerText = 'NEXT QUESTION';
             nextBtn.style.display = 'block';
-        }, 200)
+        }, 100)
     } else {
         clickCount++;
 
@@ -106,9 +111,14 @@ nextBtn.addEventListener('click', () => {
     } else {
         makeRandIndex(questionAnswers);
         loadQandAs(questionAnswers, qaIndex);
-        console.log(`randIndexArr ${randIndexArr.length} correctAnswers ${correctAnswers} ${questionAnswers.length}`)
+        // console.log(`randIndexArr ${randIndexArr.length} correctAnswers ${correctAnswers} ${questionAnswers.length}`)
     };
 });
+
+function flyinEgg() {
+    const flyinEgg = document.querySelector('#flyin-egg');
+    flyinEgg.className = 'move-da-egg';
+}
 
 // add question on page load
 document.addEventListener('DOMContentLoaded', () => {
