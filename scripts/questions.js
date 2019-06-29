@@ -40,7 +40,7 @@ const questionAnswers = [{
             { D: "semiconductors" }
         ],
         answer: "D",
-        summary: "In 1956 Bill Shockley, one of the inventors of the transistor, founded Shockley Semiconductor Labs in Mountain View. His employees would go on to start Fairchild Semiconductor and eventually Intel. Semiconductor technology allows electronic circuits to be miniaturized by printing them on silicon 'chips'."
+        summary: "In 1956 Bill Shockley (one of the inventors of the transistor) founded Shockley Semiconductor Labs in Mountain View. His employees would go on to start Fairchild Semiconductor and eventually Intel. Semiconductor technology allows electronic circuits to be miniaturized by printing them on silicon 'chips'."
     },
     {
         question: 'A prototype of this technology was initially used between employees at a failing podcast startup.',

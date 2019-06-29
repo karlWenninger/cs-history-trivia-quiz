@@ -1,4 +1,4 @@
-// make HTML elements
+// get HTML elements
 const question = document.querySelector('#question');
 const answerOptionContainer = document.querySelector('#answer-option-container');
 const answer = document.querySelector('#answer');
@@ -30,9 +30,9 @@ function loadQandAs(arr, index) {
     nextBtn.style.display = 'none'
 };
 
-
 let clickCount = 0;
 let correctAnswers = 0;
+flyinEgg.classList = '';
 
 // get user clicked answer-option
 answerOptionContainer.addEventListener('click', (e) => {
@@ -43,10 +43,10 @@ answerOptionContainer.addEventListener('click', (e) => {
 
     if (userAnswer.innerText.slice(0, 1) == `${questionAnswers[qaIndex].answer}`) {
         clickCount++;
-        answer.innerText = `ANSWER: ${userAnswer.innerText.slice(2)} is CORRECT!!!`;
-        console.log(userAnswer.innerText.slice(2))
-
-        if (userAnswer.innerText.slice(2) == ' easter egg') {
+        answer.innerText = `ANSWER: ${userAnswer.innerText.slice(3)} is CORRECT!!!`;
+        // console.log(userAnswer.innerText.slice(2))
+        // console.log(userAnswer.innerText.slice(3))
+        if (userAnswer.innerText.slice(3) == 'easter egg') {
             flyinEgg();
         }
         setTimeout(() => {
@@ -56,7 +56,6 @@ answerOptionContainer.addEventListener('click', (e) => {
         }, 100)
     } else {
         clickCount++;
-
         answer.innerText = 'ANSWER:';
         nextBtn.style.display = 'none';
         summary.innerText = '';

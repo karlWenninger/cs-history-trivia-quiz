@@ -11,14 +11,15 @@ body {
     position: relative;
     overflow: hidden;
     width: 95vw;
-    height: 90vh;
-    margin-top: 10%;
-    padding: 10% 5%;
+    height: 95vh;
+    margin-top: 5%;
+    padding: 10% 5% 2% 5%;
     background: #222;
     color: lightgreen;
     border-radius: 2%;
     font-family: monospace;
     font-size: 1.2em;
+    line-height: 1.2;
 }
 
 hr.dashed {
@@ -92,7 +93,7 @@ a {
     .container {
         width: 90vw;
         height: 75vh;
-        margin-top: 5%;
+        /*margin-top: 5%;*/
         padding: 5% 3%;
     }
 }
