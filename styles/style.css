@@ -11,7 +11,7 @@ body {
     position: relative;
     overflow: hidden;
     width: 95vw;
-    height: 95vh;
+    height: auto;
     margin-top: 5%;
     padding: 10% 5% 2% 5%;
     background: #222;
@@ -20,6 +20,7 @@ body {
     font-family: monospace;
     font-size: 1.2em;
     line-height: 1.2;
+    overflow: scroll;
 }
 
 hr.dashed {
@@ -43,10 +44,7 @@ ul {
 }
 
 #next-btn {
-    position: absolute;
-    bottom: 1%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    margin-top: 2em;
     padding: .4em;
     width: 110px;
     text-align: center;
@@ -93,7 +91,6 @@ a {
     .container {
         width: 90vw;
         height: 75vh;
-        /*margin-top: 5%;*/
         padding: 5% 3%;
     }
 }
