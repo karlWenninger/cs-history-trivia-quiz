@@ -40,7 +40,7 @@ const questionAnswers = [{
             { D: "semiconductors" }
         ],
         answer: "D",
-        summary: "In 1956 Bill Shockley (one of the inventors of the transistor) founded Shockley Semiconductor Labs in Mountain View. His employees would go on to start Fairchild Semiconductor and eventually Intel. Semiconductor technology allows electronic circuits to be miniaturized by printing them on silicon 'chips'."
+        summary: `In 1956 Bill Shockley (one of the inventors of the transistor) founded Shockley Semiconductor Labs in Mountain View. His employees would go on to start Fairchild Semiconductor and eventually Intel.<br><br>Semiconductor technology allows electronic circuits to be miniaturized by printing them on silicon 'chips'.`
     },
     {
         question: 'A prototype of this technology was initially used between employees at a failing podcast startup.',
@@ -172,7 +172,7 @@ const questionAnswers = [{
             { D: "Altair 8800" }
         ],
         answer: "C",
-        summary: "On election night 1952 the UNIVAC correctly forecast a landslide victory for Dwight Eisenhower, the candidate that was NOT favored by the media and pollsters. The computer itself was in Philadelphia. As a background prop for the New York live television broadcast NBC studios rigged up a dummy box with flashing christmas tree lights. This was the first time that many Americans saw a 'computer'."
+        summary: "On election night 1952 the UNIVAC correctly forecast a landslide victory for Dwight Eisenhower, the candidate that was NOT favored by the media and pollsters. Because the UNIVAC itself was in Philidelphia CBS studios in New York rigged up a dummy box with flashing lights as a background prop for its live studio broadcast. This was the first 'computer' many Americans ever saw."
     },
     {
         question: "The first version of this website was built because its founders felt placing an ad on Craigslist was too impersonal.",
@@ -221,7 +221,7 @@ const questionAnswers = [{
 ];
 
 
-const endMsgLinks = 
+const endGameLinks = 
        `<br>
         <div>
         <h4><a href='https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo' target='_blank'>Crash Course: Computer Science (2017)</a></h4>

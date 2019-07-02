@@ -44,13 +44,11 @@ answerOptionContainer.addEventListener('click', (e) => {
     if (userAnswer.innerText.slice(0, 1) == `${questionAnswers[qaIndex].answer}`) {
         clickCount++;
         answer.innerText = `ANSWER: ${userAnswer.innerText.slice(3)} is CORRECT!!!`;
-        // console.log(userAnswer.innerText.slice(2))
-        // console.log(userAnswer.innerText.slice(3))
         if (userAnswer.innerText.slice(3) == 'easter egg') {
             flyinEgg();
         }
         setTimeout(() => {
-            summary.innerText = `${questionAnswers[qaIndex].summary}`;
+            summary.innerHTML = `${questionAnswers[qaIndex].summary}`;
             nextBtn.innerText = 'NEXT QUESTION';
             nextBtn.style.display = 'block';
         }, 100)
@@ -100,7 +98,7 @@ nextBtn.addEventListener('click', () => {
         answerOptionContainer.innerHTML = '';
 
         const endMsg = document.createElement('div');
-        endMsg.innerHTML = `<h4>YOU ANSWERED ${correctAnswers} OUT OF ${questionAnswers.length} CORRECTLY ON THE FIRST CLICK. CONGRATS!!!</h4><br><p>If you liked these questions here's some more stuff you'll enjoy:</p>${endMsgLinks}`;
+        endMsg.innerHTML = `<h4>YOU ANSWERED ${correctAnswers} OUT OF ${questionAnswers.length} CORRECTLY ON THE FIRST CLICK. CONGRATS!!!</h4><br><p>If you liked these questions here's some more stuff you'll enjoy:</p>${endGameLinks}`;
         question.appendChild(endMsg);
         correctAnswers = 0;
         randIndexArr = [];
@@ -121,6 +119,17 @@ function flyinEgg() {
 
 // add question on page load
 document.addEventListener('DOMContentLoaded', () => {
-    makeRandIndex(questionAnswers);
-    loadQandAs(questionAnswers, qaIndex);
+    const startMsg = document.createElement('div');
+    startMsg.style.textAlign = 'center';
+    startMsg.style.marginTop = '';
+    startMsg.innerHTML = `COMPUTER HISTORY<br>&&<br>TRIVIA QUIZ<br><br>
+                           ${questionAnswers.length} multiple choice questions<br><br>
+                          (click on correct answer)`;
+    question.appendChild(startMsg);
+    nextBtn.innerHTML = 'START<br>QUIZ';
+    nextBtn.addEventListener('click', () => {
+        makeRandIndex(questionAnswers);
+        loadQandAs(questionAnswers, qaIndex);
+
+    })
 });
