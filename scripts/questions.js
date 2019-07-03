@@ -62,7 +62,7 @@ const questionAnswers = [{
             { D: "IBM PC" }
         ],
         answer: "B",
-        summary: "After seeing an article about the Altair in Popular Electronics magazine a young Bill Gates wrote software for it. This was Microsoft's founding product."
+        summary: "After seeing an article about the Altair in Popular Electronics magazine a young Bill Gates wrote (and sold) software for it. This software was Microsoft's founding product."
     },
     {
         question: "In the nineteenth century this man designed the 'Analytical Engine': a contraption of program-controlled mechanical gears theoretically capable of performing any calculation. ",
@@ -172,7 +172,7 @@ const questionAnswers = [{
             { D: "Altair 8800" }
         ],
         answer: "C",
-        summary: "On election night 1952 the UNIVAC correctly forecast a landslide victory for Dwight Eisenhower, the candidate that was NOT favored by the media and pollsters. Because the UNIVAC itself was in Philidelphia, CBS studios in New York rigged up a dummy box with flashing lights as a background prop for its live broadcast. This was the first 'computer' many Americans ever saw."
+        summary: "On election night 1952 the UNIVAC correctly forecast a landslide victory for Dwight Eisenhower, the candidate that was NOT favored by the media and pollsters. CBS television studios in New York wanted to impress it's viewers with the new technology during its live election night broadcast. Since the UNIVAC was in Philedelphia they rigged up a dummy box with flashing lights as a background prop. This prop was the first 'computer' many Americans ever saw."
     },
     {
         question: "The first version of this website was built because its founders felt placing an ad on Craigslist was too impersonal.",

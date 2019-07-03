@@ -62,15 +62,10 @@ answerOptionContainer.addEventListener('click', (e) => {
             summary.innerHTML = `${questionAnswers[currIndex].summary}`;
             nextBtn.innerText = 'NEXT QUESTION';
             nextBtn.style.display = 'block';
-
-            mainContainer.scrollTo(0, 1000);
-
-
-            // mainContainer.scrollTo({
-            //     top: -10000,
-            //     left: 100,
-            //     behavior: 'smooth'
-            // });
+            // scroll to answer (for small screens)
+            if (questionIndex != randIndexArr.length - 1) {
+                mainContainer.scrollTo(0, 1000);
+            }
 
         }, 100)
     } else {
@@ -105,7 +100,8 @@ nextBtn.addEventListener('click', () => {
         answer.innerText = '';
         summary.innerText = '';
         answerOptionContainer.innerHTML = '';
-        // to display end msg splash screen
+
+        // display end msg splash screen
         const endMsg = document.createElement('div');
         endMsg.innerHTML = `<h4>YOU ANSWERED ${correctAnswers} OUT OF ${questionAnswers.length} CORRECTLY ON THE FIRST CLICK. CONGRATS!!!</h4><br><p>If you liked these questions here's some more stuff you'll enjoy:</p>${endGameLinks}`;
         question.appendChild(endMsg);
@@ -121,7 +117,6 @@ nextBtn.addEventListener('click', () => {
     } else {
         questionIndex++;
         loadQuestions(questionAnswers, questionIndex);
-        // alert('this is the else trigger')
     };
 });
 

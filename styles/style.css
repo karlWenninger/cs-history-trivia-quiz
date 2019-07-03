@@ -12,7 +12,7 @@ body {
     width: 96vw;
     height: 98vh;
     margin: 1vh auto;
-    padding: 5% 3% 2% 3%;
+    padding: 5%;
     background: #222;
     color: lightgreen;
     border-radius: 2%;
@@ -91,9 +91,9 @@ a {
 
 @media screen and (min-width: 768px) {
     #main-container {
-        margin-top: 5vh;
-        max-width: 1024px;
-        max-height: 768px;
+        margin: 2% auto;
+        width: 1024px;
+        height: 768px;
     }
 }
 
