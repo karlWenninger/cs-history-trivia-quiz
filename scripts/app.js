@@ -1,4 +1,5 @@
 // get HTML elements
+const mainContainer = document.querySelector('#main-container');
 const question = document.querySelector('#question');
 const answerOptionContainer = document.querySelector('#answer-option-container');
 const answer = document.querySelector('#answer');
@@ -6,25 +7,30 @@ const summary = document.querySelector('#summary');
 const nextBtn = document.querySelector('#next-btn');
 
 let randIndexArr = [];
+
 function makeRandIndex(arr) {
     for (let i in questionAnswers) {
-        console.log(i)
         randIndexArr.push(i)
     }
     return randIndexArr.sort((a, b) => 0.5 - Math.random());
 }
 
 // cycle thru questionsAnswers
-let qaIndex = 0;
-let answerOptions;
+let questionIndex = 0,
+    currIndex, answerOptions;
 
-function loadQuestions(arr, qaIndex) {
-    question.innerText = `QUESTION: ${arr[randIndexArr[qaIndex]].question}`;
+function loadQuestions(arr, questionIndex) {
+    currIndex = randIndexArr[questionIndex]
 
-    answerOptions = arr[randIndexArr[qaIndex]].answerOptions;
-
-    // clear previous answerOptions 
+    // clear previous UI items (displayed only on correct answer)
+    answer.innerText = '';
+    summary.innerText = '';
+    nextBtn.style.display = 'none'
+    // reset, get new answer options
     answerOptionContainer.innerHTML = '';
+    answerOptions = arr[currIndex].answerOptions;
+
+    question.innerText = `QUESTION: ${arr[currIndex].question}`;
 
     const li = document.createElement('li');
     li.classList = 'answer-option pointer';
@@ -33,14 +39,11 @@ function loadQuestions(arr, qaIndex) {
         li.innerText = `${Object.keys(i)}: ${Object.values(i)}`
         answerOptionContainer.appendChild(li.cloneNode(true));
     }
-    // clear UI items (displayed only on correct answer)
-    answer.innerText = '';
-    summary.innerText = '';
-    nextBtn.style.display = 'none'
+    return currIndex;
 };
 
-let clickCount = 0;
-let correctAnswers = 0;
+let userAnswer, clickCount = 0,
+    correctAnswers = 0;
 flyinEgg.classList = '';
 
 // get user clicked answer-option
@@ -49,16 +52,26 @@ answerOptionContainer.addEventListener('click', (e) => {
         return;
     } else { userAnswer = e.target }
 
-    if (userAnswer.innerText.slice(0, 1) == `${questionAnswers[randIndexArr[qaIndex]].answer}`) {
+    if (userAnswer.innerText.slice(0, 1) == `${questionAnswers[currIndex].answer}`) {
         clickCount++;
         answer.innerText = `ANSWER: ${userAnswer.innerText.slice(3)} is CORRECT!!!`;
         if (userAnswer.innerText.slice(3) == 'easter egg') {
             flyinEgg();
         }
         setTimeout(() => {
-            summary.innerHTML = `${questionAnswers[randIndexArr[qaIndex]].summary}`;
+            summary.innerHTML = `${questionAnswers[currIndex].summary}`;
             nextBtn.innerText = 'NEXT QUESTION';
             nextBtn.style.display = 'block';
+
+            mainContainer.scrollTo(0, 1000);
+
+
+            // mainContainer.scrollTo({
+            //     top: -10000,
+            //     left: 100,
+            //     behavior: 'smooth'
+            // });
+
         }, 100)
     } else {
         clickCount++;
@@ -80,14 +93,13 @@ answerOptionContainer.addEventListener('click', (e) => {
 // load next question, track correctAnswers 
 // btn is hidden until correct answer selected
 nextBtn.addEventListener('click', () => {
-    console.log(qaIndex , randIndexArr.length, randIndexArr[qaIndex])
     if (clickCount == 1) {
         correctAnswers++;
     }
     clickCount = 0;
 
     // if all questions completed 
-    if (qaIndex == randIndexArr.length - 1) {
+    if (questionIndex == randIndexArr.length - 1) {
         // clear all this stuff
         question.innerText = '';
         answer.innerText = '';
@@ -103,19 +115,19 @@ nextBtn.addEventListener('click', () => {
             correctAnswers = 0;
             randIndexArr = [];
             makeRandIndex(questionAnswers);
-            loadQuestions(questionAnswers, qaIndex);
+            loadQuestions(questionAnswers, questionIndex);
         })
         // load new question
     } else {
-        qaIndex++;
-        loadQuestions(questionAnswers, qaIndex);
+        questionIndex++;
+        loadQuestions(questionAnswers, questionIndex);
         // alert('this is the else trigger')
     };
 });
 
 function flyinEgg() {
     const flyinEgg = document.querySelector('#flyin-egg');
-    flyinEgg.className = 'move-da-egg';
+    flyinEgg.className = 'flyin-egg-ani';
 }
 
 // add question on page load
@@ -123,12 +135,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // opening splash screen only
     const startMsg = document.createElement('div');
     startMsg.style.textAlign = 'center';
-    startMsg.style.marginTop = '';
     startMsg.innerHTML = `COMPUTER HISTORY<br>&&<br>TRIVIA QUIZ<br><br>
                            ${questionAnswers.length} multiple choice questions<br><br>
                           (click on correct answer)`;
     question.appendChild(startMsg);
-    
+
     nextBtn.innerHTML = 'START<br>QUIZ';
     makeRandIndex(questionAnswers);
 });

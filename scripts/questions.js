@@ -62,7 +62,7 @@ const questionAnswers = [{
             { D: "IBM PC" }
         ],
         answer: "B",
-        summary: "After seeing an article about the Altair in Popular Electronics magazine a young Bill Gates wrote software for it. This was to become Microsoft's founding product."
+        summary: "After seeing an article about the Altair in Popular Electronics magazine a young Bill Gates wrote software for it. This was Microsoft's founding product."
     },
     {
         question: "In the nineteenth century this man designed the 'Analytical Engine': a contraption of program-controlled mechanical gears theoretically capable of performing any calculation. ",
@@ -106,7 +106,7 @@ const questionAnswers = [{
             { D: "targeting advertisements" }
         ],
         answer: "C",
-        summary: "At the time competing search engines ranked results by how often a searched term appeared as text on a web page. Google ranked results according to the number of related sites that linked to the site being evaluated."
+        summary: "At the time competing search engines ranked results by how often a searched term appeared as text on a web page. Google ranked results according to the number of related sites that linked to the page being evaluated."
     },
     {
         question: 'This "law" states that computer performance speeds will double every two years.',
@@ -172,7 +172,7 @@ const questionAnswers = [{
             { D: "Altair 8800" }
         ],
         answer: "C",
-        summary: "On election night 1952 the UNIVAC correctly forecast a landslide victory for Dwight Eisenhower, the candidate that was NOT favored by the media and pollsters. Because the UNIVAC itself was in Philidelphia CBS studios in New York rigged up a dummy box with flashing lights as a background prop for its live studio broadcast. This was the first 'computer' many Americans ever saw."
+        summary: "On election night 1952 the UNIVAC correctly forecast a landslide victory for Dwight Eisenhower, the candidate that was NOT favored by the media and pollsters. Because the UNIVAC itself was in Philidelphia, CBS studios in New York rigged up a dummy box with flashing lights as a background prop for its live broadcast. This was the first 'computer' many Americans ever saw."
     },
     {
         question: "The first version of this website was built because its founders felt placing an ad on Craigslist was too impersonal.",
