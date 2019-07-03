@@ -51,7 +51,7 @@ answerOptionContainer.addEventListener('click', (e) => {
     if (e.target.className != 'answer-option pointer') {
         return;
     } else { userAnswer = e.target }
-
+    console.log(questionIndex)
     if (userAnswer.innerText.slice(0, 1) == `${questionAnswers[currIndex].answer}`) {
         clickCount++;
         answer.innerText = `ANSWER: ${userAnswer.innerText.slice(3)} is CORRECT!!!`;
@@ -63,7 +63,7 @@ answerOptionContainer.addEventListener('click', (e) => {
             nextBtn.innerText = 'NEXT QUESTION';
             nextBtn.style.display = 'block';
             // scroll to answer (for small screens)
-            if (questionIndex != randIndexArr.length - 1) {
+            if (questionIndex != randIndexArr.length) {
                 mainContainer.scrollTo(0, 1000);
             }
 
