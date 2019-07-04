@@ -1,14 +1,12 @@
 [Play the game!](https://karlwenninger.github.io/cs-history-trivia-quiz/)	
 
 
- [![Preview](img/mobile-preview.png)](https://karlwenninger.github.io/cs-history-trivia-quiz/)
+ [![Preview](images/mobile-preview.png)](https://karlwenninger.github.io/cs-history-trivia-quiz/)
 
 
-## Project Title
+## Computer History && Trivia Quiz
 
-Computer History && Trivia Quiz
-
-Multiple choice quiz covering computer science, history and trivia that I find interesting or amusing. I enjoyed writing and researching the questions just as much as the coding!
+Multiple choice quiz covering computer science, history and trivia topics that I find interesting or amusing. I enjoyed writing and researching the questions just as much as the coding!
 
 ## Built With
 
