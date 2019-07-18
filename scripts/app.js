@@ -91,7 +91,7 @@ nextBtn.addEventListener('click', () => {
         correctAnswers++;
     }
     clickCount = 0;
-
+    mainContainer.scrollIntoView(true);
     // if all questions completed 
     if (questionIndex == randIndexArr.length - 1) {
         question.innerText = '';
