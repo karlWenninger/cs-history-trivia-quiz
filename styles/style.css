@@ -92,7 +92,8 @@ a {
 @media screen and (min-width: 768px) {
     #main-container {
         margin: 2% auto;
-        width: 1024px;
+        width: 98%;
+        max-width: 1024px;
         height: 768px;
     }
 }

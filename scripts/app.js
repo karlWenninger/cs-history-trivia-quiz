@@ -64,7 +64,7 @@ answerOptionContainer.addEventListener('click', (e) => {
             nextBtn.style.display = 'block';
             // scroll to answer (for small screens)
             if (questionIndex != randIndexArr.length) {
-                mainContainer.scrollTo(0, 1000);
+                nextBtn.scrollIntoView(true);
             }
 
         }, 100)
@@ -85,8 +85,7 @@ answerOptionContainer.addEventListener('click', (e) => {
     };
 });
 
-// load next question, track correctAnswers 
-// btn is hidden until correct answer selected
+// load next question, track correctAnswers, btn is hidden until correct answer selected
 nextBtn.addEventListener('click', () => {
     if (clickCount == 1) {
         correctAnswers++;
@@ -95,7 +94,6 @@ nextBtn.addEventListener('click', () => {
 
     // if all questions completed 
     if (questionIndex == randIndexArr.length - 1) {
-        // clear all this stuff
         question.innerText = '';
         answer.innerText = '';
         summary.innerText = '';
