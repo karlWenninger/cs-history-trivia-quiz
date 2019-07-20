@@ -5,30 +5,18 @@ const answer = document.querySelector('#answer');
 const summary = document.querySelector('#summary');
 const nextBtn = document.querySelector('#next-btn');
 
-let randIndexArr = [];
-
-function makeRandIndex(arr) {
-    for (let i in questionAnswers) {
-        randIndexArr.push(i)
-    }
-    return randIndexArr.sort((a, b) => 0.5 - Math.random());
-}
-
 // cycle thru questionsAnswers
-let questionIndex = 0,
-    currIndex, answerOptions;
+let questionIndex = -1;
 
 function loadQuestions(arr, questionIndex) {
-    currIndex = randIndexArr[questionIndex]
-
     // clear previous answer items, display current on correct answer
     answer.innerText = '';
     summary.innerText = '';
     nextBtn.style.display = 'none'
     answerOptionContainer.innerHTML = '';
-    answerOptions = arr[currIndex].answerOptions;
+    answerOptions = arr[questionIndex].answerOptions;
 
-    question.innerText = `QUESTION: ${arr[currIndex].question}`;
+    question.innerText = `QUESTION: ${arr[questionIndex].question}`;
 
     const li = document.createElement('li');
     li.classList = 'answer-option pointer';
@@ -37,9 +25,8 @@ function loadQuestions(arr, questionIndex) {
         li.innerText = `${Object.keys(i)}: ${Object.values(i)}`
         answerOptionContainer.appendChild(li.cloneNode(true));
     }
-    return currIndex;
+    return questionIndex;
 };
-
 
 // get user clicked answer-option
 let userAnswer, clickCount = 0,
@@ -50,20 +37,19 @@ answerOptionContainer.addEventListener('click', (e) => {
     if (e.target.className != 'answer-option pointer') {
         return;
     } else { userAnswer = e.target }
-    console.log(questionIndex)
-    if (userAnswer.innerText.slice(0, 1) == `${questionAnswers[currIndex].answer}`) {
+    if (userAnswer.innerText.slice(0, 1) == `${questionAnswers[questionIndex].answer}`) {
         clickCount++;
         answer.innerText = `ANSWER: ${userAnswer.innerText.slice(3)} is CORRECT!!!`;
         if (userAnswer.innerText.slice(3) == 'easter egg') {
             flyinEgg();
         }
         setTimeout(() => {
-            summary.innerHTML = `${questionAnswers[currIndex].summary}`;
+            summary.innerHTML = `${questionAnswers[questionIndex].summary}`;
             nextBtn.innerText = 'NEXT QUESTION';
             nextBtn.style.display = 'block';
-            
+
             // scroll to answer (for small screens)
-            if (questionIndex != randIndexArr.length) {
+            if (questionIndex != questionAnswers.length) {
                 nextBtn.scrollIntoView(true);
             }
 
@@ -92,9 +78,12 @@ nextBtn.addEventListener('click', () => {
     }
     clickCount = 0;
     mainContainer.scrollIntoView(true);
-    
+
+    console.log(questionIndex + ' ' + questionAnswers.length)
+
+
     // if all questions completed 
-    if (questionIndex == randIndexArr.length) {
+    if (questionIndex == questionAnswers.length - 1) {
         question.innerText = '';
         answer.innerText = '';
         summary.innerText = '';
@@ -108,8 +97,6 @@ nextBtn.addEventListener('click', () => {
         nextBtn.innerText = 'DO QUIZ AGAIN';
         nextBtn.addEventListener('click', () => {
             correctAnswers = 0;
-            randIndexArr = [];
-            makeRandIndex(questionAnswers);
             loadQuestions(questionAnswers, questionIndex);
         })
         // load new question
@@ -136,5 +123,4 @@ document.addEventListener('DOMContentLoaded', () => {
     question.appendChild(startMsg);
 
     nextBtn.innerHTML = 'START<br>QUIZ';
-    makeRandIndex(questionAnswers);
 });

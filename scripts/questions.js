@@ -76,6 +76,17 @@ const questionAnswers = [{
         summary: "Although the machine was never successfully built the Analytical Engine is considered to be the first historical conception of a general-purpose computer."
     },
     {
+        question: 'This is a slang term for an undocumented, often humorous feature hidden in piece of software.',
+        answerOptions: [
+            { A: "surprise party" },
+            { B: "easter egg" },
+            { C: "roman candle" },
+            { D: "Christmas in July" }
+        ],
+        answer: "B",
+        summary: "Apparently the term was first used in 1979 after a reportedly underpaid Atari programmer secretly inserted his name in a game."
+    },
+    {
         question: 'In the early 2000s this was the dominant technology to provide animation, interactivity and video playback to a website.',
         answerOptions: [
             { A: "CSS" },
@@ -207,22 +218,11 @@ const questionAnswers = [{
         answer: "B",
         summary: 'Englishman Alan Turing is widely considered to be the father of theoretical computer science and artificial intelligence. The Turing Test was proposed in his 1950 paper "Computing Machinery and Intelligence".'
     },
-    {
-        question: 'This is a slang term for an undocumented, often humorous feature hidden in piece of software.',
-        answerOptions: [
-            { A: "surprise party" },
-            { B: "easter egg" },
-            { C: "roman candle" },
-            { D: "Christmas in July" }
-        ],
-        answer: "B",
-        summary: "Apparently the term was first used in 1979 after a reportedly underpaid Atari programmer secretly inserted his name in a game."
-    },
 ];
 
 
-const endGameLinks = 
-       `<br>
+const endGameLinks =
+    `<br>
         <div>
         <h4><a href='https://www.youtube.com/watch?v=tpIctyqH29Q&list=PL8dPuuaLjXtNlUrzyH5r6jN9ulIgZBpdo' target='_blank'>Crash Course: Computer Science (2017)</a></h4>
         <p>Forty short episodes covering the evolution of computer technology and the history that goes with it. Gets deep into CS while remaining accessible to those without extensive math/engineering backgrounds.</p>
