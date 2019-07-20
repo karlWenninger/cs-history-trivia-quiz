@@ -88,17 +88,13 @@ nextBtn.addEventListener('click', () => {
         answer.innerText = '';
         summary.innerText = '';
         answerOptionContainer.innerHTML = '';
+        nextBtn.style.display = 'none'
 
         // display end msg splash screen
         const endMsg = document.createElement('div');
         endMsg.innerHTML = `<h4>YOU ANSWERED ${correctAnswers} OUT OF ${questionAnswers.length} CORRECTLY ON THE FIRST CLICK. CONGRATS!!!</h4><br><p>If you liked these questions here's some more stuff you'll enjoy:</p>${endGameLinks}`;
         question.appendChild(endMsg);
 
-        nextBtn.innerText = 'DO QUIZ AGAIN';
-        nextBtn.addEventListener('click', () => {
-            correctAnswers = 0;
-            loadQuestions(questionAnswers, questionIndex);
-        })
         // load new question
     } else {
         questionIndex++;

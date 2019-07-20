@@ -1,10 +1,10 @@
 const questionAnswers = [{
         question: "The first use of the word 'bug' to describe a computer malfunction came from a ",
         answerOptions: [
-            { A: "1980s hacker who went by the moniker 'electro_fly'." },
-            { B: "fried transistor that resembled an insect." },
-            { C: "failed 1960s NASA spy satellite code named 'praying-mantis.'" },
-            { D: "dead moth found in an electro-mechanical relay." }
+            { A: "1980s hacker who went by the moniker 'electro_fly'" },
+            { B: "fried transistor that resembled an insect" },
+            { C: "failed 1960s NASA spy satellite code named 'praying-mantis'" },
+            { D: "dead moth found in an electro-mechanical relay" }
         ],
         answer: "D",
         summary: "On September 9th, 1947 programmer Grace Hopper wrote in the Harvard Mark II computer's log book 'First actual case of bug being found'. This was after a problem with the machine was traced to a moth stuck between relay contacts."
@@ -81,7 +81,7 @@ const questionAnswers = [{
             { A: "surprise party" },
             { B: "easter egg" },
             { C: "roman candle" },
-            { D: "Christmas in July" }
+            { D: "xmas in July" }
         ],
         answer: "B",
         summary: "Apparently the term was first used in 1979 after a reportedly underpaid Atari programmer secretly inserted his name in a game."
@@ -183,7 +183,7 @@ const questionAnswers = [{
             { D: "Altair 8800" }
         ],
         answer: "C",
-        summary: "On election night 1952 the UNIVAC correctly forecast a landslide victory for Dwight Eisenhower; the candidate that was NOT favored by the media and pollsters. CBS television studios in New York wanted to impress it's viewers with the new technology during its live election night broadcast. Since the UNIVAC was in Philedelphia they rigged up a dummy box with flashing lights as a background prop. This prop was the first 'computer' many Americans ever saw."
+        summary: "On election night 1952 the UNIVAC correctly forecast a landslide victory for Dwight Eisenhower, the candidate that was NOT favored by the media and pollsters. CBS television studios in New York wanted to impress it's viewers with the new technology during its live election night broadcast. Since the UNIVAC was in Philedelphia they rigged up a dummy box with flashing lights as a background prop. This prop was the first 'computer' many Americans ever saw."
     },
     {
         question: "The first version of this website was built because its founders felt placing an ad on Craigslist was too impersonal.",

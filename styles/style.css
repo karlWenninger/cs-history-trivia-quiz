@@ -76,7 +76,7 @@ a {
 }
 
 .flyin-egg-ani {
-    animation: movinEgg 6s linear 2s;
+    animation: movinEgg 3s linear 2s;
 }
 
 @keyframes movinEgg {
