@@ -65,7 +65,7 @@ const questionAnswers = [{
         summary: "After seeing an article about the Altair in Popular Electronics magazine a young Bill Gates wrote (and sold) software for it. This software was Microsoft's founding product."
     },
     {
-        question: "In the nineteenth century this man designed the 'Analytical Engine': a contraption of program-controlled mechanical gears theoretically capable of performing any calculation. ",
+        question: "In the nineteenth century this man designed the 'Analytical Engine': a contraption of mechanical gears theoretically capable of performing any calculation. ",
         answerOptions: [
             { A: "Nikola Tesla" },
             { B: "Herman Hollerith" },
@@ -73,12 +73,12 @@ const questionAnswers = [{
             { D: "Charles Babbage" }
         ],
         answer: "D",
-        summary: "Although the machine was never successfully built the Analytical Engine is considered to be the first historical conception of a modern computer."
+        summary: "Although the machine was never successfully built the Analytical Engine is considered to be the first historical conception of a general-purpose computer."
     },
     {
-        question: 'In the early 2000s this was the dominant technology to provide animation, interactivity and video playback to a website. As HTML 5 compliant browsers proliferated it has largely fallen out of use.',
+        question: 'In the early 2000s this was the dominant technology to provide animation, interactivity and video playback to a website.',
         answerOptions: [
-            { A: "FireWire" },
+            { A: "CSS" },
             { B: "BASIC" },
             { C: "Flash" },
             { D: "HTML" }
@@ -128,7 +128,7 @@ const questionAnswers = [{
             { D: "Excel" }
         ],
         answer: "B",
-        summary: "Microsoft included a non-exclusive clause in the deal to provide IBM with this command-line operating system. Because IBM designed their PC using third-party components competitors were able to easily issue clones. DOS became the defacto OS for all of these machines."
+        summary: "Microsoft included a non-exclusive clause in the deal to provide IBM with this command-line operating system. Because IBM designed their PC using third-party components competitors were able to easily issue clones. DOS became the defacto OS for most of these machines."
     },
     {
         question: 'This nineteenth century Englishwoman is often credited as the author of the first algorithm.',
@@ -172,7 +172,7 @@ const questionAnswers = [{
             { D: "Altair 8800" }
         ],
         answer: "C",
-        summary: "On election night 1952 the UNIVAC correctly forecast a landslide victory for Dwight Eisenhower, the candidate that was NOT favored by the media and pollsters. CBS television studios in New York wanted to impress it's viewers with the new technology during its live election night broadcast. Since the UNIVAC was in Philedelphia they rigged up a dummy box with flashing lights as a background prop. This prop was the first 'computer' many Americans ever saw."
+        summary: "On election night 1952 the UNIVAC correctly forecast a landslide victory for Dwight Eisenhower; the candidate that was NOT favored by the media and pollsters. CBS television studios in New York wanted to impress it's viewers with the new technology during its live election night broadcast. Since the UNIVAC was in Philedelphia they rigged up a dummy box with flashing lights as a background prop. This prop was the first 'computer' many Americans ever saw."
     },
     {
         question: "The first version of this website was built because its founders felt placing an ad on Craigslist was too impersonal.",
@@ -194,7 +194,7 @@ const questionAnswers = [{
             { D: "Microsoft" }
         ],
         answer: "D",
-        summary: "Microsoft had bundled its Internet Explorer web browser with all Windows operating systems. They then claimed that the two previously separate pieces of software were the same product. The government's assertion was that this was done intentionally to kill competition from competing web browsers.",
+        summary: "Microsoft had bundled its Internet Explorer web browser with Windows operating systems. They then claimed that the two previously separate pieces of software were the same product. The government's assertion was that this was done intentionally to kill competition from competing web browsers.",
     },
     {
         question: "To pass a _______ a machine must exhibit intelligent behavior indistinguishable from that of a human.",
@@ -213,10 +213,10 @@ const questionAnswers = [{
             { A: "surprise party" },
             { B: "easter egg" },
             { C: "roman candle" },
-            { D: "xmas in july" }
+            { D: "Christmas in July" }
         ],
         answer: "B",
-        summary: "Apparently the term was first used in 1979 after an underpaid Atari programmer secretly inserted his name inside a room in a game."
+        summary: "Apparently the term was first used in 1979 after a reportedly underpaid Atari programmer secretly inserted his name in a game."
     },
 ];
 

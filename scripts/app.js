@@ -1,4 +1,3 @@
-// get HTML elements
 const mainContainer = document.querySelector('#main-container');
 const question = document.querySelector('#question');
 const answerOptionContainer = document.querySelector('#answer-option-container');
@@ -22,11 +21,10 @@ let questionIndex = 0,
 function loadQuestions(arr, questionIndex) {
     currIndex = randIndexArr[questionIndex]
 
-    // clear previous UI items (displayed only on correct answer)
+    // clear previous answer items, display current on correct answer
     answer.innerText = '';
     summary.innerText = '';
     nextBtn.style.display = 'none'
-    // reset, get new answer options
     answerOptionContainer.innerHTML = '';
     answerOptions = arr[currIndex].answerOptions;
 
@@ -42,11 +40,12 @@ function loadQuestions(arr, questionIndex) {
     return currIndex;
 };
 
+
+// get user clicked answer-option
 let userAnswer, clickCount = 0,
     correctAnswers = 0;
 flyinEgg.classList = '';
 
-// get user clicked answer-option
 answerOptionContainer.addEventListener('click', (e) => {
     if (e.target.className != 'answer-option pointer') {
         return;
@@ -62,6 +61,7 @@ answerOptionContainer.addEventListener('click', (e) => {
             summary.innerHTML = `${questionAnswers[currIndex].summary}`;
             nextBtn.innerText = 'NEXT QUESTION';
             nextBtn.style.display = 'block';
+            
             // scroll to answer (for small screens)
             if (questionIndex != randIndexArr.length) {
                 nextBtn.scrollIntoView(true);
@@ -92,6 +92,7 @@ nextBtn.addEventListener('click', () => {
     }
     clickCount = 0;
     mainContainer.scrollIntoView(true);
+    
     // if all questions completed 
     if (questionIndex == randIndexArr.length - 1) {
         question.innerText = '';
