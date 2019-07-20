@@ -94,7 +94,7 @@ nextBtn.addEventListener('click', () => {
     mainContainer.scrollIntoView(true);
     
     // if all questions completed 
-    if (questionIndex == randIndexArr.length - 1) {
+    if (questionIndex == randIndexArr.length) {
         question.innerText = '';
         answer.innerText = '';
         summary.innerText = '';
@@ -119,6 +119,7 @@ nextBtn.addEventListener('click', () => {
     };
 });
 
+// for easter egg question
 function flyinEgg() {
     const flyinEgg = document.querySelector('#flyin-egg');
     flyinEgg.className = 'flyin-egg-ani';
