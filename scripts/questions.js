@@ -183,7 +183,7 @@ const questionAnswers = [{
             { D: "Altair 8800" }
         ],
         answer: "C",
-        summary: "On election night 1952 the UNIVAC correctly forecast a landslide victory for Dwight Eisenhower, the candidate that was NOT favored by the media and pollsters. CBS television studios in New York wanted to impress it's viewers with the new technology during its live election night broadcast. Since the UNIVAC was in Philedelphia they rigged up a dummy box with flashing lights as a background prop. This prop was the first 'computer' many Americans ever saw."
+        summary: "On election night 1952 the UNIVAC correctly forecast a landslide victory for Dwight Eisenhower, the candidate that was NOT favored by the media and pollsters. CBS television studios in New York wanted to impress it's viewers with the new technology during its live election night broadcast. Since the UNIVAC was in Philadelphia they rigged up a dummy box with flashing lights as a background prop. This prop was the first 'computer' many Americans ever saw."
     },
     {
         question: "The first version of this website was built because its founders felt placing an ad on Craigslist was too impersonal.",
