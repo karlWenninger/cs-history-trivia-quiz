@@ -1,5 +1,5 @@
 const questionAnswers = [{
-        question: "The first use of the word 'bug' to describe a computer malfunction came from a ",
+        question: "The first use of the word 'bug' to describe a computer malfunction came from a",
         answerOptions: [
             { A: "1980s hacker who went by the moniker 'electro_fly'" },
             { B: "fried transistor that resembled an insect" },
@@ -95,7 +95,7 @@ const questionAnswers = [{
             { D: "HTML" }
         ],
         answer: "C",
-        summary: "The Flash Player is a browser plug-in. Much of the multi-media functionality previously provided by Flash is now accomplished natively in your browser using HTML 5, CSS and JavaScript."
+        summary: "The Flash Player is a browser plug-in. Much of the multimedia functionality previously provided by Flash is now accomplished natively in your browser using HTML 5, CSS and JavaScript."
     },
     {
         question: 'This company developed the first computer to feature a graphical user interface (GUI).',
@@ -109,7 +109,7 @@ const questionAnswers = [{
         summary: "The Xerox Alto was designed and built at the company's Palo Alto Research Center in the 1970s. Apparently Xerox's east coast management never understood the revolutionary nature of the technology. After visiting the facility in 1979 Steve Jobs began plans to develop Apple's first GUI-based operating system."
     },
     {
-        question: "After its launch in 1998 Google's search engine gained industry dominance by utilizing a better method for",
+        question: "After its launch in 1998, Google's search engine gained industry dominance by utilizing a better method for",
         answerOptions: [
             { A: "collecting user data" },
             { B: "hiring developers" },
@@ -139,7 +139,7 @@ const questionAnswers = [{
             { D: "Excel" }
         ],
         answer: "B",
-        summary: "Microsoft included a non-exclusive clause in the deal to provide IBM with this command-line operating system. Because IBM designed their PC using third-party components competitors were able to easily issue clones. DOS became the defacto OS for most of these machines."
+        summary: "Microsoft included a non-exclusive clause in the deal to provide IBM with this command-line operating system. Because IBM designed their PC using third-party components competitors were able to easily issue clones. DOS became the de facto OS for most of these machines."
     },
     {
         question: 'This nineteenth century Englishwoman is often credited as the author of the first algorithm.',
@@ -164,7 +164,7 @@ const questionAnswers = [{
         summary: "In 1975 Steve Wozniak designed and hand-built a computer that would become the Apple I. He and Steve Jobs assembled and sold the circuit boards from a garage during the next year."
     },
     {
-        question: 'hotornot.com was a early 2000s website where users submitted pictures of themselves to be rated for attractiveness by others. A founder of which company built a similar site in 2003?',
+        question: 'hotornot.com was an early 2000s website where users submitted pictures of themselves to be rated for attractiveness by others. A founder of which company built a similar site in 2003?',
         answerOptions: [
             { A: "Uber" },
             { B: "Airbnb" },
@@ -220,7 +220,6 @@ const questionAnswers = [{
     },
 ];
 
-
 const endGameLinks =
     `<br>
         <div>
@@ -234,7 +233,7 @@ const endGameLinks =
         </div>
         <br>
         <div>
-        <h4><a href='https://www.pbs.org/wgbh/americanexperience/features/silicon-chapter-one/' target='_blank'>American Expirience: Silicon Valley (2013)</a></h4>
-        <p>This episode of American Expirience documents the "Traitorous Eight"; a group of young men who in 1957 quit a fledgling transitor company to start their own. Together they invented the microchip and redefined American corporate culture.</p>
+        <h4><a href='https://www.pbs.org/wgbh/americanexperience/features/silicon-chapter-one/' target='_blank'>American Experience: Silicon Valley (2013)</a></h4>
+        <p>This episode of American Experience documents the "Traitorous Eight"; a group of young men who in 1957 quit a fledgling transistor company to start their own. Together they invented the microchip and redefined American corporate culture.</p>
         </div>
        `;
