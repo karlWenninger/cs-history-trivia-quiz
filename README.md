@@ -5,7 +5,7 @@
 
 ## Computer History && Trivia Quiz
 
-A multiple-choice quiz covering computer science, history and trivia topics that I found interesting or amusing. I enjoyed researching and writing the questions just as much as the coding! Once you've answered all the questions there are links to a few wonderful resources that I used.
+I wrote twenty multiple-choice questions covering computer science, history and trivia topics that I found interesting or amusing. I learned just as much researching the questions as I did coding the game. At the end of the quiz there are links to a few documentaries and other resources that I enjoyed while working on this project.
 
 ## Built With
 
